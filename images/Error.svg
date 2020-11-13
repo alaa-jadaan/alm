@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="321" height="306" viewBox="0 0 321 306">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffee9a"/>
+      <stop offset="1" stop-color="#ffb38b"/>
+    </linearGradient>
+    <filter id="Polygon_17" x="0" y="0" width="321" height="306" filterUnits="userSpaceOnUse">
+      <feOffset dy="-5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="34.5" result="blur"/>
+      <feFlood flood-color="#ffdb95" flood-opacity="0.251"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Error" transform="translate(-19.5 -58.5)">
+    <g transform="matrix(1, 0, 0, 1, 19.5, 58.5)" filter="url(#Polygon_17)">
+      <path id="Polygon_17-2" data-name="Polygon 17" d="M49.2,13.547a9,9,0,0,1,15.6,0l41.433,71.963A9,9,0,0,1,98.433,99H15.567a9,9,0,0,1-7.8-13.491Z" transform="translate(103.5 108.5)" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Path_16" data-name="Path 16" d="M-2.108-11.656H2.17L4.162-44.888H-4.162ZM4.216-3.224c0-2.666-1.488-4.03-4.154-4.03-2.728,0-4.154,1.364-4.154,4.03S-2.666.744.062.744C2.728.744,4.216-.62,4.216-3.224Z" transform="translate(180 251)" fill="#673d26"/>
+  </g>
+</svg>
