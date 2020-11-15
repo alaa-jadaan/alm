@@ -8,9 +8,11 @@
     <title>
 
     </title>
+    <!--  font  -->
+    <link rel="stylesheet" href="https://use.typekit.net/efu0clf.css">
     <!--  bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/efu0clf.css">
+
     <!--  main css style file  -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -25,173 +27,169 @@
 <body class="register-page">
 
     <div class="page-content-wrapper">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-3">
-                <div class="logo-wrapper">
-                    <a class="logo-link" href="#">
-                        <img src="images/alm.png" class="logo" />
-                    </a>
-                </div>
-            </div>
-            <div class="col">
-                <h2>المقرأة الالكترونية</h2>
-                <h5>1438 لعام 1الدورة</h5>
-                <p>أهلاً بك في دورة 1 لعام 1438 لتسميع القرآن الكريم عن بعد. الرجاء تعبئة الاستمارة ادناه لمن تود الالتحاق بهذة الدورة</p>
-                <small>ملاحظة: الخانات الملحقة ب* خانات إلزامية</small>
-            </div>
-        </div>
-
-        
-
-        <form id="register-form">
-            <section>
-                <div class="section-header">
-                    <div class="section-title">
-                        <h3>مــعـلــومــــات عـــامـــــة</h3>
-                        <hr class="w-75">
+        <div class="container">
+            <header>
+                <div class="row mb-5">
+                    <div class="col-3">
+                        <div class="logo-wrapper">
+                            <a class="logo-link" href="#">
+                                <img src="images/alm.png" class="logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h2 class="title">المقرأة الالكترونية</h2>
+                        <div class="course">الدورة 1 لعام 1438</div>
+                        <p class="details">أهلاً بك في دورة 1 لعام 1438 لتسميع القرآن الكريم عن بعد. الرجاء تعبئة الاستمارة ادناه لمن تود الالتحاق بهذة الدورة</p>
+                        <small class="star-note">ملاحظة: الخانات الملحقة ب* خانات إلزامية</small>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="form-group col-6">
-                        <label for="firstName">الاسم الأول*</label>
-                        <input type="text" class="form-control" id="firstName" name="" placeholder="الرجاء الادخال" required>
+            </header>
+
+
+
+            <form id="register-form">
+                <section>
+                    <div class="section-header">
+                        <div class="title"> مــعـلــومــــات عـــامـــــة</div>
+                        <hr>
                     </div>
-                    <div class="form-group col-6">
-                        <label for="secondName">اسم الأب*</label>
-                        <input type="text" class="form-control" id="secondName" name="" placeholder="الرجاء الادخال" required>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="lastName">الكنية*</label>
-                        <input type="text" class="form-control" id="lastName" name="" placeholder="الرجاء الادخال" required>
-                    </div>
-                    <div class="w-100"></div>
-                    <!--
-                    <div class="form-group col-6">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">الاسم الأول*</label>
+                            <input type="text" class="form-control" id="firstName" name="" placeholder="الرجاء الادخال" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="secondName">اسم الأب*</label>
+                            <input type="text" class="form-control" id="secondName" name="" placeholder="الرجاء الادخال" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">الكنية*</label>
+                            <input type="text" class="form-control" id="lastName" name="" placeholder="الرجاء الادخال" required>
+                        </div>
+                        <div class="w-100"></div>
+                        <!--
+                    <div class="form-group col-md-6">
                         <label for=""></label>
                         <input type="text" class="form-control" id="" name="" placeholder="الرجاء الادخال" required>
                     </div>
 -->
-                    <div class="form-group col-6">
-                        <label for="">رقم الوتساب الخاص بالطالبة*</label>
-                        <input type="text" class="form-control" id="" name="" placeholder="000 000 000" required>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="">اعادة إدخال رقم الوتساب للتأكد*</label>
-                        <input type="text" class="form-control" id="" name="" placeholder="الرجاء الادخال" required>
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label for="">رقم الوتساب الخاص بالطالبة*</label>
+                            <input type="text" class="form-control phone-input" id="" name="" placeholder="000 000 000" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">اعادة إدخال رقم الوتساب للتأكد*</label>
+                            <input type="text" class="form-control phone-input" id="" name="" placeholder="000 000 000" required>
+                        </div>
 
-                    <div class="form-group col-6">
-                        <label for="">حسابك عسكايب</label>
-                        <input type="text" class="form-control" id="" name="" placeholder="اسم الحساب" required>
+                        <div class="form-group col-md-6">
+                            <label for="">حسابك عسكايب</label>
+                            <input type="text" class="form-control" id="" name="" placeholder="اسم الحساب" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">تاريخ الميلاد*</label>
+                            <input type="date" class="form-control" id="" name="" placeholder="الرجاء الادخال" required>
+                        </div>
                     </div>
-                    <div class="form-group col-6">
-                        <label for="">تاريخ الميلاد*</label>
-                        <input type="text" class="form-control" id="" name="" placeholder="الرجاء الادخال" required>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <section>
-                <div class="section-header">
-                    <div class="section-title">
-                        <h3>مــكــان الإقــامـــة</h3>
-                        <hr class="w-75">
+                <section>
+                    <div class="section-header">
+                        <div class="title"> مــكــان الإقــامـــة</div>
+                        <hr>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-6">
-                        <label for="">الجنسية*</label>
-                        <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                            <option value="">الرجاء الاختيار</option>
-                            <option value="">2</option>
-                        </select>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="">الجنسية*</label>
+                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
+                                <option value="">الرجاء الاختيار</option>
+                                <option value="">2</option>
+                            </select>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="form-group col-md-6">
+                            <label for="">بلد الإقامة*</label>
+                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
+                                <option value="">الرجاء الاختيار</option>
+                                <option value="">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">المدينة*</label>
+                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
+                                <option value="">الرجاء الاختيار</option>
+                                <option value="">2</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="w-100"></div>
-                    <div class="form-group col-6">
-                        <label for="">بلد الإقامة*</label>
-                        <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                            <option value="">الرجاء الاختيار</option>
-                            <option value="">2</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="">المدينة*</label>
-                        <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                            <option value="">الرجاء الاختيار</option>
-                            <option value="">2</option>
-                        </select>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <section>
-                <div class="section-header">
-                    <div class="section-title">
-                        <h3>عن الدورة</h3>
-                        <hr class="w-75">
+                <section>
+                    <div class="section-header">
+                        <div class="title"> عن الدورة</div>
+                        <hr>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-6">
-                        <label for="">مجموعة الحفظ*</label>
-                        <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                            <option value="">الرجاء الاختيار</option>
-                            <option value="">2</option>
-                        </select>
-                    </div>
-                    <div class="w-100"></div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="">مجموعة الحفظ*</label>
+                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
+                                <option value="">الرجاء الاختيار</option>
+                                <option value="">2</option>
+                            </select>
+                        </div>
+                        <div class="w-100"></div>
 
-                    <div class="form-group col-6">
-                        <label for="">المؤهل الدراسي*</label>
-                        <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                            <option value="">الرجاء الاختيار</option>
-                            <option value="">2</option>
-                        </select>
-                    </div>
-                    <div class="w-100"></div>
-                    <div class="form-group col-12">
-                        <label class="d-block">هل انت مجازة؟*</label>
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">نعم لقد أجزت من قبل</label>
+                        <div class="form-group col-md-6">
+                            <label for="">المؤهل الدراسي*</label>
+                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
+                                <option value="">الرجاء الاختيار</option>
+                                <option value="">2</option>
+                            </select>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="form-group col-12">
+                            <label class="d-block">هل انت مجازة؟*</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label radio-text" for="inlineRadio1">نعم لقد أجزت من قبل</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">لا لم أجز من قبل</label>
+                                <div class="col-md-6">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label radio-text" for="inlineRadio2">لا لم أجز من قبل</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section class="mb-5">
-                <div class="section-header">
-                    <div class="section-title">
-                        <h3>شروط الانتساب</h3>
-                        <hr class="w-75">
+                </section>
+                <section class="mb-5">
+                    <div class="section-header">
+                        <div class="title">
+                            شروط الانتساب
+                            <hr>
+                        </div>
                     </div>
+                    <div class="policies">
+                        وريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم." "سيت يتبيرسبايكياتيس يوندي أومنيس أستي ناتيس كياسي أرشيتيكتو بيتاي فيتاي ديكاتا سيونت أكسبليكابو. نيمو أنيم أبسام فوليوباتاتيم كيواي فوليوبتاس سايت أسبيرناتشر أيوت أودايت أيوت فيوجايت, سيد كيواي كونسيكيونتشر ماجناي دولارس أيوس كيواي راتاشن فوليوبتاتيم سيكيواي نيسكايونت. نيكيو بوررو كيوايسكيوم ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد كيواي نون نيومكيوام ايايوس موداي تيمبورا انكايديونت يوت لابوري أيت دولار ماجنام ألايكيوام كيوايرات فوليوبتاتيم. يوت اينايم أد مينيما فينيام, كيواس نوستريوم أكسيركايتاشيم يلامكوربوريس سيوسكايبيت لابورايوسام, نايساي يوت ألايكيوايد أكس أيا كوموداي كونسيكيواتشر؟ كيوايس أيوتيم فيل أيوم أيوري ريبريهينديرايت كيواي ان إيا فوليوبتاتي فيلايت ايسسي كيوم نايهايل موليستايا كونسيكيواتيو,فيلايليوم كيواي دولوريم أيوم فيوجايات كيو فوليوبتاس نيولا باراياتيور؟" " أت فيرو ايوس ايت أكيوساميوس ايت
+                    </div>
+                    <hr class="policies-line">
+                    <div class="form-group col-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">قرأت كامل الشروط وأنا موافقة عليهم تماماً مع تحمل كامل المسؤولية</label>
+                        </div>
+                    </div>
+                </section>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">إرسال الاستمارة</button>
                 </div>
-                <div class="policies">
-                    وريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم." "سيت يتبيرسبايكياتيس يوندي أومنيس أستي ناتيس كياسي أرشيتيكتو بيتاي فيتاي ديكاتا سيونت أكسبليكابو. نيمو أنيم أبسام فوليوباتاتيم كيواي فوليوبتاس سايت أسبيرناتشر أيوت أودايت أيوت فيوجايت, سيد كيواي كونسيكيونتشر ماجناي دولارس أيوس كيواي راتاشن فوليوبتاتيم سيكيواي نيسكايونت. نيكيو بوررو كيوايسكيوم ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد كيواي نون نيومكيوام ايايوس موداي تيمبورا انكايديونت يوت لابوري أيت دولار ماجنام ألايكيوام كيوايرات فوليوبتاتيم. يوت اينايم أد مينيما فينيام, كيواس نوستريوم أكسيركايتاشيم يلامكوربوريس سيوسكايبيت لابورايوسام, نايساي يوت ألايكيوايد أكس أيا كوموداي كونسيكيواتشر؟ كيوايس أيوتيم فيل أيوم أيوري ريبريهينديرايت كيواي ان إيا فوليوبتاتي فيلايت ايسسي كيوم نايهايل موليستايا كونسيكيواتيو,فيلايليوم كيواي دولوريم أيوم فيوجايات كيو فوليوبتاس نيولا باراياتيور؟" " أت فيرو ايوس ايت أكيوساميوس ايت
-                </div>
-                <hr>
-                <div class="form-group col-12">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">قرأت كامل الشروط وأنا موافقة عليهم تماماً مع تحمل كامل المسؤولية</label>
-                </div>
-                </div>
-            </section>
-            <div class="text-center">
-            <button type="submit" class="btn btn-primary">إرسال الاستمارة</button>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
 
 

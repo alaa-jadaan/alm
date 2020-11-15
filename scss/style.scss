@@ -2,22 +2,37 @@
 ////$font-medium: "robotFontMedium";
 //$font-bold: "robotFontBold";
 //$font-arabic-regular: "BahijRegular";
-////$font-arabic-bold: "BahijBold";
+$placeholder: #C8C8C8;
+$fontTajawalBlack: "Tajawal-Black" ,"sans-serif";
+$fontTajawalBold: "Tajawal-Bold" ,"sans-serif";
+$fontTajawalExtraBold: "Tajawal-ExtraBold" ,"sans-serif";
+//$fontAdR: "adelle-sans-arabic" ,"sans-serif";
+@font-face {
+    font-family: "Tajawal-Black";
+    src: url("../fonts/Tajawal-Black.ttf");
+}
+@font-face {
+    font-family: "Tajawal-Bold";
+    src: url("../fonts/Tajawal-Bold.ttf");
+}
+@font-face {
+    font-family: "Tajawal-ExtraBold";
+    src: url("../fonts/Tajawal-ExtraBold.ttf");
+}
 //
 //@font-face {
-//    font-family: adelle-sans-arabic,sans-serif;
-//
+//    font-family: adelle-sans-arabic;
 //    font-weight: 400;
-//
-//    font-style: normal;
 //}
+
 //@font-face {
-//    font-family: adelle-sans-arabic,sans-serif;
-//
-//    font-weight: 600;
-//
-//    font-style: normal;
-//}
+//        font-family: adelle-sans-arabic,sans-serif;
+//    
+//        font-weight: 600;
+//    
+//        font-style: normal;
+//    }
+    
 
 /*Main Rules*/
 html,
@@ -26,8 +41,60 @@ body {
     font-size: 18px;
     padding: 0px;
     margin: 0px;
+    color: #3C2A4A
 }
 
+//::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+//    color: #000;
+//    opacity: 1; /* Firefox */
+//}
+//
+//:-ms-input-placeholder { /* Internet Explorer 10-11 */
+//    color: $placeholder;
+//}
+//
+//::-ms-input-placeholder { /* Microsoft Edge */
+//    color: $placeholder;
+//}
+.form-control::-webkit-input-placeholder {
+    color: $placeholder;
+    opacity: 1
+}
+
+.form-control::-moz-placeholder {
+    color: $placeholder;
+    opacity: 1
+}
+
+.form-control:-ms-input-placeholder {
+    color: $placeholder;
+    opacity: 1
+}
+
+.form-control::-ms-input-placeholder {
+    color: $placeholder;
+    opacity: 1
+}
+
+.form-control::placeholder {
+    color: $placeholder;
+    opacity: 1
+}
+
+.form-control{
+    font-size: 16px;
+    color: #000;
+    border-color: #A2A2A2;
+    &:hover{
+        border-color: #706F6F
+    }
+    &:focus{
+        border-color: #000
+    }
+    &:disabled{
+        border-color: #CECECE
+    }
+}
 /*for arabic site*/
 html,
 body {
@@ -45,7 +112,9 @@ body {
 .form-group {
     //    text-align: right;
     direction: rtl;
-
+    .phone-input{
+        direction: ltr
+    }
     label {
         direction: ltr
     }
@@ -58,24 +127,19 @@ body {
 
 input.form-control:focus {
     box-shadow: none;
-//    border-color: #ced4da;
+    //    border-color: #ced4da;
 }
-.btn.btn-primary:focus,.btn.btn-primary:active{
+
+.btn.btn-primary:focus,
+.btn.btn-primary:active {
     box-shadow: 0 0 0 .2rem rgba(72, 180, 97, .5);
-        outline: none;
-        border-color: #000;
+    outline: none;
+    border-color: #000;
 
 }
+
 /*End Main Rules*/
 .register-page {
-    .page-content-wrapper {
-//        width: 700px;
-        width: 50%;
-        margin-left: auto;
-        padding: 50px 10px;
-        background-color: #fff
-    }
-
     background-size: 100%;
     background-attachment: fixed;
     //    background-position: -1px -49px;
@@ -83,29 +147,76 @@ input.form-control:focus {
     background-repeat: no-repeat;
     background-image: url(../images/Desktop%20From%20BG.jpg);
 
+    .page-content-wrapper {
+        //        width: 700px;
+        width: 50%;
+        margin-left: auto;
+        padding: 50px 10px;
+        background-color: #fff
+    }
+    header{
+        
+        .title{
+            font-family: $fontTajawalBlack;
+            font-size: 25px;
+        }
+        .course{
+//            font-family: $fontAdR;
+//            font-weight: 400;
+//            font-style: normal
+            font-family: adelle-sans-arabic,sans-serif;
+            //    
+                    font-weight: 400;
+            //    
+                    font-style: normal;
+            font-size: 20px;
+            margin-bottom: 60px
+        }
+        .details{
+            font-size: 16px;
+            margin-bottom: 18px
+        }
+        .star-note{
+            font-size: 16px;
+        }
+    }
     .logo-wrapper {
         text-align: center;
 
         .logo {
-            width: 100%;
-            max-width: 100px;
+            width: 97px;
+            max-width: 100%;
             margin: auto
         }
     }
-
-    section{
+    section {
         margin-bottom: 30px;
-    }
-    .section-header {
-        h3{
+        font-size: 13px;
+        .title{
             font-size: 20px;
+            font-family: $fontTajawalBold
         }
+    }
+
+    .section-header {
         hr {
+            width: 75%;
             margin-right: 0;
+            margin-top: 5px;
             border-top: 2px solid #3C2A4A;
         }
     }
 
+    form{
+        input{
+            font-size: 16px
+        }
+        
+    }
+    .radio-text{
+        font-size: 16px;
+        color: #C8C8C8
+    }
     button[type="submit"] {
         background: rgb(169, 140, 75);
         background: linear-gradient(276deg, rgba(169, 140, 75, 1) 0%, rgba(203, 165, 82, 1) 100%);
@@ -113,13 +224,63 @@ input.form-control:focus {
         width: 471px;
         max-width: 100%;
         height: 63px;
-border-color: transparent
+        border-color: transparent;
+        font-family: $fontTajawalExtraBold;
+        border-radius: 10px;
+        font-size: 20px
     }
-    .policies{
+
+    .policies {
         height: 200px;
         width: 80%;
         padding-right: 15px;
         margin-left: auto;
+        margin-top: 38px;
         overflow-y: scroll
+    }
+    .policies-line{
+        width: 75%;
+        margin-right: 0;
+        margin-top: 55px;
+        margin-bottom: 27px;
+        border-top: 1px solid #707070;
+    }
+    @media (max-width: 991.98px) {
+        background-image: none;
+
+        .page-content-wrapper {
+            width: 100%;
+            background-color: #EEE
+        }
+        header{
+            font-size: 16px;
+            .title{
+                font-size: 20px;
+            }
+            .course{
+                margin-bottom: 40px
+            }
+        }
+        .logo {
+            width: 40px;
+        }
+        
+        section {
+            background-color: #fff;
+            padding: 30px;
+            padding-top: calc(1rem + 10px);
+            padding-bottom: 10px;
+            border-radius: 15px;
+        }
+
+        .section-header {
+            hr {
+                width: 100%
+            }
+        }
+
+        .policies {
+            width: 95%;
+        }
     }
 }
