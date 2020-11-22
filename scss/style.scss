@@ -1,7 +1,4 @@
-//$font-regular: "adelle-sans-arabic,sans-serif";
-////$font-medium: "robotFontMedium";
-//$font-bold: "robotFontBold";
-//$font-arabic-regular: "BahijRegular";
+
 $placeholder: #C8C8C8;
 $fontTajawalBlack: "Tajawal-Black" ,"sans-serif";
 $fontTajawalBold: "Tajawal-Bold" ,"sans-serif";
@@ -95,10 +92,117 @@ body {
         border-color: #CECECE
     }
 }
+
+.form-control.is-valid, .was-validated .form-control:valid,.form-control.is-invalid, .was-validated .form-control:invalid{
+    padding-right: .75rem;
+    background: none
+}
+/*plugins*/
+/* sumo select plugin */
+
+.SumoSelect {
+    min-width: 200px;
+    width: auto;
+    vertical-align: sub
+}
+
+.SumoSelect > .CaptionCont {
+    border-color: #A2A2A2;
+    display: block !important;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.SumoSelect > .CaptionCont > label {
+    margin: 0
+}
+.SumoSelect>.CaptionCont>label>i{
+    opacity: .5
+}
+.SumoSelect.open > .CaptionCont,
+.SumoSelect:focus > .CaptionCont,
+.SumoSelect:hover > .CaptionCont {
+    box-shadow: none;
+    border-color: #706F6F;
+    &>label>i{
+        opacity: .8
+    }
+}
+
+.SumoSelect:hover {
+    cursor: pointer;
+
+    .CaptionCont > span,
+    .CaptionCont > label {
+        cursor: pointer;
+    }
+}
+
+.SumoSelect > .CaptionCont > span.placeholder {
+    font-style: normal;
+    color: $placeholder
+}
+
+.SumoSelect {
+    width: 100%;
+    max-width: auto;
+    min-width: 100px
+}
+
+.SumoSelect .select-all > label,
+.SumoSelect > .CaptionCont,
+.SumoSelect > .optWrapper > .options li.opt label {
+    margin-bottom: 0
+}
+
+.sumo-select {
+    //	display: none !important
+}
+.CaptionCont.sumo-invalid{ 
+    border-color: #dc3545;
+}
+/* intlTelInput plugin */
+.iti {
+    width: 100%;
+    direction: ltr
+}
+@media (min-width: 768px){
+.iti__country-list{
+    white-space: nowrap;
+    max-width: 295px;
+    li{
+        max-width: 275px;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+}
+}
+@media (max-width: 500px){
+    .iti__country-list {
+        white-space: normal;
+}
+}
 /*for arabic site*/
 html,
 body {
     text-align: right
+}
+
+.SumoSelect>.CaptionCont>span{
+    padding-right: 0;
+    padding-left: 30px
+}
+
+.SumoSelect>.CaptionCont>label{
+    left: 0;
+    right: auto
 }
 
 .row {
@@ -164,11 +268,11 @@ input.form-control:focus {
 //            font-family: $fontAdR;
 //            font-weight: 400;
 //            font-style: normal
-            font-family: adelle-sans-arabic,sans-serif;
-            //    
-                    font-weight: 400;
-            //    
-                    font-style: normal;
+//            font-family: adelle-sans-arabic,sans-serif;
+//            //    
+//                    font-weight: 400;
+//            //    
+//                    font-style: normal;
             font-size: 20px;
             margin-bottom: 60px
         }

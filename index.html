@@ -9,10 +9,13 @@
 
     </title>
     <!--  font  -->
-    <link rel="stylesheet" href="https://use.typekit.net/efu0clf.css">
+    <!--    <link rel="stylesheet" href="https://use.typekit.net/efu0clf.css">-->
     <!--  bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-
+    <!--  sumo select  -->
+    <link rel="stylesheet" href="css/sumoselect.min.css" />
+    <!--  intlTelInput  -->
+    <link rel="stylesheet" href="css/intlTelInput.min.css">
     <!--  main css style file  -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -22,6 +25,20 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        /*
+    @import url("https://use.typekit.net/efu0clf.css");
+    header .course{
+           
+        font-family:"adelle-sans-arabic";
+            font-weight: 400;
+            font-style: normal;
+            font-size: 20px;
+            margin-bottom: 60px;
+        color: red
+        }
+*/
+    </style>
 </head>
 
 <body class="register-page">
@@ -48,7 +65,7 @@
 
 
 
-            <form id="register-form">
+            <form id="register-form" class="needs-validation" novalidate>
                 <section>
                     <div class="section-header">
                         <div class="title"> مــعـلــومــــات عـــامـــــة</div>
@@ -57,15 +74,20 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="firstName">الاسم الأول*</label>
-                            <input type="text" class="form-control" id="firstName" name="" placeholder="الرجاء الادخال" required>
+                            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="الرجاء الادخال" required>
+<!--
+                            <div class="invalid-feedback">
+                                الرجاء تعبئة هذة الخانة
+                            </div>
+-->
                         </div>
                         <div class="form-group col-md-6">
                             <label for="secondName">اسم الأب*</label>
-                            <input type="text" class="form-control" id="secondName" name="" placeholder="الرجاء الادخال" required>
+                            <input type="text" class="form-control" id="father_name" name="secondName" placeholder="الرجاء الادخال" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="lastName">الكنية*</label>
-                            <input type="text" class="form-control" id="lastName" name="" placeholder="الرجاء الادخال" required>
+                            <input type="text" class="form-control" id="last_name" name="lastName" placeholder="الرجاء الادخال" required>
                         </div>
                         <div class="w-100"></div>
                         <!--
@@ -76,20 +98,30 @@
 -->
                         <div class="form-group col-md-6">
                             <label for="">رقم الوتساب الخاص بالطالبة*</label>
-                            <input type="text" class="form-control phone-input" id="" name="" placeholder="000 000 000" required>
+                            <input type="tel" class="form-control phone-input" id="phone" name=" " required>
+                            <!--
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control phone-input" id="" name="" placeholder="000 000 000" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" id="phone">
+                                </div>
+                            </div>
+-->
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">اعادة إدخال رقم الوتساب للتأكد*</label>
-                            <input type="text" class="form-control phone-input" id="" name="" placeholder="000 000 000" required>
+                            <input type="text" class="form-control phone-input" id="" placeholder="000 000 000" required>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="">حسابك عسكايب</label>
-                            <input type="text" class="form-control" id="" name="" placeholder="اسم الحساب" required>
+                            <input type="text" class="form-control" id="" name="skype" placeholder="اسم الحساب" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">تاريخ الميلاد*</label>
-                            <input type="date" class="form-control" id="" name="" placeholder="الرجاء الادخال" required>
+                            <input type="date" class="form-control" id="" name="birthday" placeholder="الرجاء الادخال" required>
                         </div>
                     </div>
                 </section>
@@ -102,24 +134,22 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="">الجنسية*</label>
-                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                                <option value="">الرجاء الاختيار</option>
-                                <option value="">2</option>
+                            <select name="nationality" class="sumo-select-search form-control" id="nationality-select" required placeholder="الرجاء الاختيار">
+                                <!--first option is to display placeholder-->
+                                <option selected disabled class="d-none" value=""></option>
                             </select>
                         </div>
                         <div class="w-100"></div>
                         <div class="form-group col-md-6">
                             <label for="">بلد الإقامة*</label>
-                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                                <option value="">الرجاء الاختيار</option>
-                                <option value="">2</option>
+                            <select name="country" class="sumo-select-search form-control" id="country-select" required placeholder="الرجاء الاختيار">
+                                <option selected disabled class="d-none" value=""></option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">المدينة*</label>
-                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                                <option value="">الرجاء الاختيار</option>
-                                <option value="">2</option>
+                            <select name="city" class="sumo-select-search form-control" id="state-select" required placeholder="الرجاء الاختيار">
+                                <option selected disabled class="d-none" value=""></option>
                             </select>
                         </div>
                     </div>
@@ -133,18 +163,15 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="">مجموعة الحفظ*</label>
-                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                                <option value="">الرجاء الاختيار</option>
-                                <option value="">2</option>
+                            <select name="quranSubject" class="sumo-select form-control" id="subject-select" id="#" placeholder="الرجاء الاختيار">
+                                <option selected disabled class="d-none" value=""></option>
                             </select>
                         </div>
                         <div class="w-100"></div>
 
                         <div class="form-group col-md-6">
                             <label for="">المؤهل الدراسي*</label>
-                            <select name="" class="form-control" id="" required id="#" placeholder="الرجاء الاختيار">
-                                <option value="">الرجاء الاختيار</option>
-                                <option value="">2</option>
+                            <select name="" class="sumo-select form-control" id="" id="#" placeholder="الرجاء الاختيار">
                             </select>
                         </div>
                         <div class="w-100"></div>
@@ -153,14 +180,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label radio-text" for="inlineRadio1">نعم لقد أجزت من قبل</label>
+                                        <input class="form-check-input" type="radio" name="holy_quran" id="holy_quran1" value="1" required>
+                                        <label class="form-check-label radio-text" for="holy_quran1">نعم لقد أجزت من قبل</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label radio-text" for="inlineRadio2">لا لم أجز من قبل</label>
+                                        <input class="form-check-input" type="radio" name="holy_quran" id="holy_quran2" value="0">
+                                        <label class="form-check-label radio-text" for="holy_quran2">لا لم أجز من قبل</label>
                                     </div>
                                 </div>
                             </div>
@@ -180,19 +207,24 @@
                     <hr class="policies-line">
                     <div class="form-group col-12">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <input class="form-check-input" type="checkbox" id="" value="1" required>
                             <label class="form-check-label" for="inlineCheckbox1">قرأت كامل الشروط وأنا موافقة عليهم تماماً مع تحمل كامل المسؤولية</label>
                         </div>
                     </div>
                 </section>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">إرسال الاستمارة</button>
+                    <button type="submit" class="btn btn-primary" form="register-form">إرسال الاستمارة</button>
                 </div>
             </form>
         </div>
     </div>
 
-
+    <script id="invalid-msg-template" type="text/template">
+	<div class="invalid-feedback">
+                                الرجاء تعبئة هذه الخانة
+        </div>
+    </script>
+    
     <!-- jQuery library -->
     <script src="js/jquery-3.5.1.min.js"></script>
     <!--  bootstrap  -->
@@ -200,6 +232,40 @@
     <script src="js/bootstrap.min.js"></script>
     <!--  mustache  -->
     <script src="js/mustache.min.js"></script>
+    <!--  sumo select  -->
+    <script src="js/jquery.sumoselect.min.js"></script>
+    <!--  intlTelInput  -->
+    <script src="js/intlTelInput.min.js"></script>
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            // any initialisation options go here
+            preferredCountries: [],
+            initialCountry: "auto",
+            geoIpLookup: function(success, failure) {
+                $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "us";
+                    success(countryCode);
+                });
+            },
+            utilsScript: "js/utils.js",
+            //            separateDialCode: true  //ask about
+        });
+    </script>
+    <!--  countries  -->
+    <script src="js/countries.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            populateCountries("country-select", "state-select"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+            populateCountries("nationality-select");
+            //initialize sumo select 
+            $(".sumo-select").SumoSelect();
+            $(".sumo-select-search").SumoSelect({
+                search: true
+            });
+        });
+    </script>
     <!--  main js file  -->
     <script src="js/script.js"></script>
 </body></html>
