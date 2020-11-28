@@ -317,6 +317,12 @@ input.form-control:focus {
         }
         
     }
+    input.part{
+        display: inline-block;
+        width: 60px;
+        padding: .375rem;
+        text-align: center
+    }
     .radio-text{
         font-size: 16px;
         color: #C8C8C8
@@ -333,7 +339,13 @@ input.form-control:focus {
         border-radius: 10px;
         font-size: 20px
     }
-
+    .phone-match-note {
+        font-size: 0.8rem;
+        color: #fff;
+        display: inline-block;
+        padding: 0 10px;
+        border-radius: 2em;
+    }
     .policies {
         height: 200px;
         width: 80%;

@@ -66,6 +66,7 @@
 
 
             <form id="register-form" class="needs-validation" novalidate>
+               <input type="hidden" name="id">
                 <section>
                     <div class="section-header">
                         <div class="title"> مــعـلــومــــات عـــامـــــة</div>
@@ -73,8 +74,8 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="firstName">الاسم الأول*</label>
-                            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="الرجاء الادخال" required>
+                            <label for="first_name">الاسم الأول*</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="الرجاء الادخال" required>
 <!--
                             <div class="invalid-feedback">
                                 الرجاء تعبئة هذة الخانة
@@ -82,12 +83,12 @@
 -->
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="secondName">اسم الأب*</label>
-                            <input type="text" class="form-control" id="father_name" name="secondName" placeholder="الرجاء الادخال" required>
+                            <label for="father_name">اسم الأب*</label>
+                            <input type="text" class="form-control" id="father_name" name="father_name" placeholder="الرجاء الادخال" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="lastName">الكنية*</label>
-                            <input type="text" class="form-control" id="last_name" name="lastName" placeholder="الرجاء الادخال" required>
+                            <label for="last_name">الكنية*</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="الرجاء الادخال" required>
                         </div>
                         <div class="w-100"></div>
                         <!--
@@ -97,8 +98,9 @@
                     </div>
 -->
                         <div class="form-group col-md-6">
-                            <label for="">رقم الوتساب الخاص بالطالبة*</label>
-                            <input type="tel" class="form-control phone-input" id="phone" name=" " required>
+                            <label for="phone">رقم الوتساب الخاص بالطالبة*</label>
+                            <input type="tel" class="form-control phone-input" id="phone" name="phone" required>
+<!--                            <small>يرجى إدخال رقم الوتس الخاص بالطالبة حصراً</small>-->
                             <!--
                             <div class="row">
                                 <div class="col-md-6">
@@ -112,9 +114,12 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">اعادة إدخال رقم الوتساب للتأكد*</label>
-                            <input type="text" class="form-control phone-input" id="" placeholder="000 000 000" required>
+                            <input type="text" class="form-control phone-input" id="" placeholder="" name="phone-confirm" required>
                         </div>
-
+                        <div class="col-12">
+                            <div class="phone-match-note"></div>
+                        </div>
+                        
                         <div class="form-group col-md-6">
                             <label for="">حسابك عسكايب</label>
                             <input type="text" class="form-control" id="" name="skype" placeholder="اسم الحساب" required>
@@ -163,15 +168,22 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="">مجموعة الحفظ*</label>
-                            <select name="quranSubject" class="sumo-select form-control" id="subject-select" id="#" placeholder="الرجاء الاختيار">
+                            <select name="quranSubject" class="sumo-select form-control" id="subject-select" placeholder="الرجاء الاختيار">
                                 <option selected disabled class="d-none" value=""></option>
+                                <option value="1">1</option>
                             </select>
+                        </div>
+                        <div class="form-group col-md-6 d-none" id="part-wrapper">
+                            <label for="" class="d-block">من الجزء*</label>
+                            <input type="text" class="form-control part" id="from-part" name="part" placeholder="10" required>
+                            إلى الجزء <span id="to-part"></span>
                         </div>
                         <div class="w-100"></div>
 
                         <div class="form-group col-md-6">
                             <label for="">المؤهل الدراسي*</label>
-                            <select name="" class="sumo-select form-control" id="" id="#" placeholder="الرجاء الاختيار">
+                            <select name="study" class="sumo-select form-control" id="study-select" placeholder="الرجاء الاختيار">
+                            <option value=""></option>
                             </select>
                         </div>
                         <div class="w-100"></div>
@@ -249,7 +261,7 @@
                 });
             },
             utilsScript: "js/utils.js",
-            //            separateDialCode: true  //ask about
+                        separateDialCode: true  //ask about
         });
     </script>
     <!--  countries  -->
