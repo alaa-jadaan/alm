@@ -6,10 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-
+        ALM
     </title>
-    <!--  font  -->
-    <!--    <link rel="stylesheet" href="https://use.typekit.net/efu0clf.css">-->
     <!--  bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!--  sumo select  -->
@@ -25,20 +23,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-        /*
-    @import url("https://use.typekit.net/efu0clf.css");
-    header .course{
-           
-        font-family:"adelle-sans-arabic";
-            font-weight: 400;
-            font-style: normal;
-            font-size: 20px;
-            margin-bottom: 60px;
-        color: red
-        }
-*/
-    </style>
 </head>
 
 <body class="register-page">
@@ -55,18 +39,19 @@
                         </div>
                     </div>
                     <div class="col">
-                        <h2 class="title">المقرأة الالكترونية</h2>
+                        <h2 class="title">المقرأة الإلكترونية</h2>
                         <div class="course">الدورة 1 لعام 1438</div>
-                        <p class="details">أهلاً بك في دورة 1 لعام 1438 لتسميع القرآن الكريم عن بعد. الرجاء تعبئة الاستمارة ادناه لمن تود الالتحاق بهذة الدورة</p>
+                        <p class="details">
+                            .أهلاً بك في دورة 1 لعام 1438 لتسميع القرآن الكريم عن بعد
+                            <br>.الرجاء تعبئة الاستمارة أدناه لمن تود الالتحاق بهذه الدورة
+                        </p>
                         <small class="star-note">ملاحظة: الخانات الملحقة ب* خانات إلزامية</small>
                     </div>
                 </div>
             </header>
 
-
-
             <form id="register-form" class="needs-validation" novalidate>
-               <input type="hidden" name="id">
+                <input type="hidden" name="id">
                 <section>
                     <div class="section-header">
                         <div class="title"> مــعـلــومــــات عـــامـــــة</div>
@@ -75,8 +60,8 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="first_name">الاسم الأول*</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="الرجاء الادخال" required>
-<!--
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="الرجاء الإدخال" maxlength="20" required>
+                            <!--
                             <div class="invalid-feedback">
                                 الرجاء تعبئة هذة الخانة
                             </div>
@@ -84,49 +69,35 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="father_name">اسم الأب*</label>
-                            <input type="text" class="form-control" id="father_name" name="father_name" placeholder="الرجاء الادخال" required>
+                            <input type="text" class="form-control" id="father_name" name="father_name" placeholder="الرجاء الإدخال" maxlength="20" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="last_name">الكنية*</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="الرجاء الادخال" required>
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="الرجاء الإدخال" maxlength="20" required>
                         </div>
                         <div class="w-100"></div>
-                        <!--
-                    <div class="form-group col-md-6">
-                        <label for=""></label>
-                        <input type="text" class="form-control" id="" name="" placeholder="الرجاء الادخال" required>
-                    </div>
--->
                         <div class="form-group col-md-6">
                             <label for="phone">رقم الوتساب الخاص بالطالبة*</label>
-                            <input type="tel" class="form-control phone-input" id="phone" name="phone" required>
-<!--                            <small>يرجى إدخال رقم الوتس الخاص بالطالبة حصراً</small>-->
-                            <!--
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control phone-input" id="" name="" placeholder="000 000 000" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="tel" id="phone">
-                                </div>
-                            </div>
--->
+                            <input type="tel" class="form-control phone-input" id="phone" name="phoneNoCode" maxlength="15" required>
+                            <!--                            <small>يرجى إدخال رقم الوتس الخاص بالطالبة حصراً</small>-->
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="">اعادة إدخال رقم الوتساب للتأكد*</label>
-                            <input type="text" class="form-control phone-input" id="" placeholder="" name="phone-confirm" required>
+                            <label for="">إعادة إدخال رقم الوتساب للتأكد*</label>
+                            <input type="text" class="form-control phone-input" id="phone-confirm" placeholder="" name="" maxlength="15" required>
                         </div>
-                        <div class="col-12">
-                            <div class="phone-match-note"></div>
+
+                        <div class="col-12 mb-3 mt-n3 d-none">
+                            <div id="phone-match-note" class="text-danger"></div>
                         </div>
-                        
+
+
                         <div class="form-group col-md-6">
-                            <label for="">حسابك عسكايب</label>
-                            <input type="text" class="form-control" id="" name="skype" placeholder="اسم الحساب" required>
+                            <label for="">حسابك على السكايب</label>
+                            <input type="text" class="form-control" id="" name="skype" placeholder="اسم الحساب">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">تاريخ الميلاد*</label>
-                            <input type="date" class="form-control" id="" name="birthday" placeholder="الرجاء الادخال" required>
+                            <input type="date" class="form-control" id="" name="birthday" placeholder="الرجاء الإدخال" required>
                         </div>
                     </div>
                 </section>
@@ -168,27 +139,31 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="">مجموعة الحفظ*</label>
-                            <select name="quranSubject" class="sumo-select form-control" id="subject-select" placeholder="الرجاء الاختيار">
+                            <select name="quranSubject" class="sumo-select form-control" id="subject-select" placeholder="الرجاء الاختيار" required>
                                 <option selected disabled class="d-none" value=""></option>
-                                <option value="1">1</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6 d-none" id="part-wrapper">
                             <label for="" class="d-block">من الجزء*</label>
-                            <input type="text" class="form-control part" id="from-part" name="part" placeholder="10" required>
-                            إلى الجزء <span id="to-part"></span>
+                            <input type="text" class="form-control" id="from-part" name="" placeholder="10" required>
+                            <span id="part-error">الرجاء إدخال قيمة صحيحة</span><span id="to-part-text">إلى الجزء</span> <span id="to-part"></span>
                         </div>
                         <div class="w-100"></div>
 
                         <div class="form-group col-md-6">
                             <label for="">المؤهل الدراسي*</label>
-                            <select name="study" class="sumo-select form-control" id="study-select" placeholder="الرجاء الاختيار">
-                            <option value=""></option>
+                            <select name="study" class="sumo-select form-control" id="study-select" placeholder="الرجاء الاختيار" required>
+                                <option selected disabled class="d-none" value=""></option>
+                                <option value="">لا يوجد</option>
+                                <option value="">شهادة الثانوية العامة</option>
+                                <option value="">إجازة جامعية</option>
+                                <option value="">دراسات عليا</option>
+                                <option value=""></option>
                             </select>
                         </div>
                         <div class="w-100"></div>
                         <div class="form-group col-12">
-                            <label class="d-block">هل انت مجازة؟*</label>
+                            <label class="d-block">هل أنت مجازة؟*</label>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
@@ -219,8 +194,8 @@
                     <hr class="policies-line">
                     <div class="form-group col-12">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="" value="1" required>
-                            <label class="form-check-label" for="inlineCheckbox1">قرأت كامل الشروط وأنا موافقة عليهم تماماً مع تحمل كامل المسؤولية</label>
+                            <input class="form-check-input" type="checkbox" id="accept" value="1" required>
+                            <label class="form-check-label" for="accept">قرأت كامل الشروط وأنا موافقة عليهم تماماً مع تحمل كامل المسؤولية</label>
                         </div>
                     </div>
                 </section>
@@ -232,11 +207,11 @@
     </div>
 
     <script id="invalid-msg-template" type="text/template">
-	<div class="invalid-feedback">
+        <div class="invalid-feedback">
                                 الرجاء تعبئة هذه الخانة
         </div>
     </script>
-    
+
     <!-- jQuery library -->
     <script src="js/jquery-3.5.1.min.js"></script>
     <!--  bootstrap  -->
@@ -260,15 +235,15 @@
                     success(countryCode);
                 });
             },
-            utilsScript: "js/utils.js",
-                        separateDialCode: true  //ask about
+            utilsScript: "js/utils.js", //for formatting/placeholders etc
+            separateDialCode: true,
+            hiddenInput: "phone" //Submitting the full international number
         });
     </script>
     <!--  countries  -->
     <script src="js/countries.js"></script>
     <script>
         $(document).ready(function() {
-
             populateCountries("country-select", "state-select"); // first parameter is id of country drop-down and second parameter is id of state drop-down
             populateCountries("nationality-select");
             //initialize sumo select 

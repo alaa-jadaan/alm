@@ -1,21 +1,27 @@
-
 $placeholder: #C8C8C8;
-$fontTajawalBlack: "Tajawal-Black" ,"sans-serif";
-$fontTajawalBold: "Tajawal-Bold" ,"sans-serif";
-$fontTajawalExtraBold: "Tajawal-ExtraBold" ,"sans-serif";
+$fontTajawalBlack: "Tajawal-Black",
+"sans-serif";
+$fontTajawalBold: "Tajawal-Bold",
+"sans-serif";
+$fontTajawalExtraBold: "Tajawal-ExtraBold",
+"sans-serif";
+
 //$fontAdR: "adelle-sans-arabic" ,"sans-serif";
 @font-face {
     font-family: "Tajawal-Black";
     src: url("../fonts/Tajawal-Black.ttf");
 }
+
 @font-face {
     font-family: "Tajawal-Bold";
     src: url("../fonts/Tajawal-Bold.ttf");
 }
+
 @font-face {
     font-family: "Tajawal-ExtraBold";
     src: url("../fonts/Tajawal-ExtraBold.ttf");
 }
+
 //
 //@font-face {
 //    font-family: adelle-sans-arabic;
@@ -29,7 +35,7 @@ $fontTajawalExtraBold: "Tajawal-ExtraBold" ,"sans-serif";
 //    
 //        font-style: normal;
 //    }
-    
+
 
 /*Main Rules*/
 html,
@@ -78,25 +84,32 @@ body {
     opacity: 1
 }
 
-.form-control{
+.form-control {
     font-size: 16px;
     color: #000;
     border-color: #A2A2A2;
-    &:hover{
+
+    &:hover {
         border-color: #706F6F
     }
-    &:focus{
+
+    &:focus {
         border-color: #000
     }
-    &:disabled{
+
+    &:disabled {
         border-color: #CECECE
     }
 }
 
-.form-control.is-valid, .was-validated .form-control:valid,.form-control.is-invalid, .was-validated .form-control:invalid{
+.form-control.is-valid,
+.was-validated .form-control:valid,
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
     padding-right: .75rem;
     background: none
 }
+
 /*plugins*/
 /* sumo select plugin */
 
@@ -117,21 +130,24 @@ body {
     background-color: #fff;
     background-clip: padding-box;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .SumoSelect > .CaptionCont > label {
     margin: 0
 }
-.SumoSelect>.CaptionCont>label>i{
+
+.SumoSelect > .CaptionCont > label > i {
     opacity: .5
 }
+
 .SumoSelect.open > .CaptionCont,
 .SumoSelect:focus > .CaptionCont,
 .SumoSelect:hover > .CaptionCont {
     box-shadow: none;
     border-color: #706F6F;
-    &>label>i{
+
+    & > label > i {
         opacity: .8
     }
 }
@@ -165,42 +181,48 @@ body {
 .sumo-select {
     //	display: none !important
 }
-.CaptionCont.sumo-invalid{ 
+
+.CaptionCont.sumo-invalid {
     border-color: #dc3545;
 }
+
 /* intlTelInput plugin */
 .iti {
     width: 100%;
     direction: ltr
 }
-@media (min-width: 768px){
-.iti__country-list{
-    white-space: nowrap;
-    max-width: 295px;
-    li{
-        max-width: 275px;
-        overflow-x: hidden;
-        text-overflow: ellipsis;
+
+@media (min-width: 768px) {
+    .iti__country-list {
+        white-space: nowrap;
+        max-width: 295px;
+
+        li {
+            max-width: 275px;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
-}
-@media (max-width: 500px){
+
+@media (max-width: 500px) {
     .iti__country-list {
         white-space: normal;
+    }
 }
-}
+
 /*for arabic site*/
 html,
 body {
     text-align: right
 }
 
-.SumoSelect>.CaptionCont>span{
+.SumoSelect > .CaptionCont > span {
     padding-right: 0;
     padding-left: 30px
 }
 
-.SumoSelect>.CaptionCont>label{
+.SumoSelect > .CaptionCont > label {
     left: 0;
     right: auto
 }
@@ -216,9 +238,11 @@ body {
 .form-group {
     //    text-align: right;
     direction: rtl;
-    .phone-input{
+
+    .phone-input {
         direction: ltr
     }
+
     label {
         direction: ltr
     }
@@ -258,32 +282,37 @@ input.form-control:focus {
         padding: 50px 10px;
         background-color: #fff
     }
-    header{
-        
-        .title{
+
+    header {
+
+        .title {
             font-family: $fontTajawalBlack;
             font-size: 25px;
         }
-        .course{
-//            font-family: $fontAdR;
-//            font-weight: 400;
-//            font-style: normal
-//            font-family: adelle-sans-arabic,sans-serif;
-//            //    
-//                    font-weight: 400;
-//            //    
-//                    font-style: normal;
+
+        .course {
+            //            font-family: $fontAdR;
+            //            font-weight: 400;
+            //            font-style: normal
+            //            font-family: adelle-sans-arabic,sans-serif;
+            //            //    
+            //                    font-weight: 400;
+            //            //    
+            //                    font-style: normal;
             font-size: 20px;
             margin-bottom: 60px
         }
-        .details{
+
+        .details {
             font-size: 16px;
             margin-bottom: 18px
         }
-        .star-note{
+
+        .star-note {
             font-size: 16px;
         }
     }
+
     .logo-wrapper {
         text-align: center;
 
@@ -293,10 +322,12 @@ input.form-control:focus {
             margin: auto
         }
     }
+
     section {
         margin-bottom: 30px;
         font-size: 13px;
-        .title{
+
+        .title {
             font-size: 20px;
             font-family: $fontTajawalBold
         }
@@ -311,22 +342,29 @@ input.form-control:focus {
         }
     }
 
-    form{
-        input{
+    form {
+        input {
             font-size: 16px
         }
-        
+
     }
-    input.part{
+
+    #from-part {
         display: inline-block;
-        width: 60px;
+        width: 40px;
         padding: .375rem;
         text-align: center
     }
-    .radio-text{
+
+    #part-error {
+        color: #dc3545
+    }
+
+    .radio-text {
         font-size: 16px;
         color: #C8C8C8
     }
+
     button[type="submit"] {
         background: rgb(169, 140, 75);
         background: linear-gradient(276deg, rgba(169, 140, 75, 1) 0%, rgba(203, 165, 82, 1) 100%);
@@ -339,6 +377,7 @@ input.form-control:focus {
         border-radius: 10px;
         font-size: 20px
     }
+
     .phone-match-note {
         font-size: 0.8rem;
         color: #fff;
@@ -346,6 +385,7 @@ input.form-control:focus {
         padding: 0 10px;
         border-radius: 2em;
     }
+
     .policies {
         height: 200px;
         width: 80%;
@@ -354,13 +394,15 @@ input.form-control:focus {
         margin-top: 38px;
         overflow-y: scroll
     }
-    .policies-line{
+
+    .policies-line {
         width: 75%;
         margin-right: 0;
         margin-top: 55px;
         margin-bottom: 27px;
         border-top: 1px solid #707070;
     }
+
     @media (max-width: 991.98px) {
         background-image: none;
 
@@ -368,19 +410,23 @@ input.form-control:focus {
             width: 100%;
             background-color: #EEE
         }
-        header{
+
+        header {
             font-size: 16px;
-            .title{
+
+            .title {
                 font-size: 20px;
             }
-            .course{
+
+            .course {
                 margin-bottom: 40px
             }
         }
+
         .logo {
             width: 40px;
         }
-        
+
         section {
             background-color: #fff;
             padding: 30px;
