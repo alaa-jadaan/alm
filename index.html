@@ -8,12 +8,16 @@
     <title>
         ALM
     </title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--  bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!--  sumo select  -->
     <link rel="stylesheet" href="css/sumoselect.min.css" />
     <!--  intlTelInput  -->
     <link rel="stylesheet" href="css/intlTelInput.min.css">
+    <!--  country region select  -->
+    <link rel="stylesheet" href="css/geodatasource-countryflag.css">
+    <link rel="gettext" type="application/x-po" href="languages/ar/LC_MESSAGES/ar.po" />
     <!--  main css style file  -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -23,9 +27,16 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 
 <body class="register-page">
+    <section class="loading-overlay" style="display: block">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </section>
 
     <div class="page-content-wrapper">
         <div class="container">
@@ -50,7 +61,7 @@
                 </div>
             </header>
 
-            <form id="register-form" class="needs-validation" novalidate>
+            <form id="register-form" class="needs-validation" novalidate autocomplete="off">
                 <input type="hidden" name="id">
                 <section>
                     <div class="section-header">
@@ -94,6 +105,7 @@
                         <div class="form-group col-md-6">
                             <label for="">حسابك على السكايب</label>
                             <input type="text" class="form-control" id="" name="skype" placeholder="اسم الحساب">
+                            <img src="images/Question%20Mark.svg" class="info-icon" alt="Details" data-toggle="tooltip" data-placement="bottom" title="اسم الحساب على السكايب">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">تاريخ الميلاد*</label>
@@ -110,23 +122,30 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="">الجنسية*</label>
-                            <select name="nationality" class="sumo-select-search form-control" id="nationality-select" required placeholder="الرجاء الاختيار">
-                                <!--first option is to display placeholder-->
+                            <!--<select name="nationality" class="sumo-select-search1 form-control" id="nationality-select" required placeholder="الرجاء الاختيار">
+                                first option is to display placeholder
                                 <option selected disabled class="d-none" value=""></option>
-                            </select>
+                            </select>-->
+                            <select name="nationality" id="nationality-select" class="form-control sumo-select-search gds-cr" data-language="ar" required></select>
                         </div>
                         <div class="w-100"></div>
                         <div class="form-group col-md-6">
                             <label for="">بلد الإقامة*</label>
+<!--
                             <select name="country" class="sumo-select-search form-control" id="country-select" required placeholder="الرجاء الاختيار">
                                 <option selected disabled class="d-none" value=""></option>
                             </select>
+-->
+                            <select name="country" id="country-select" class="form-control sumo-select-search gds-cr" country-data-region-id="city-select" data-language="ar" required></select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">المدينة*</label>
+<!--
                             <select name="city" class="sumo-select-search form-control" id="state-select" required placeholder="الرجاء الاختيار">
                                 <option selected disabled class="d-none" value=""></option>
                             </select>
+-->
+                            <select name="city" id="city-select" class="form-control sumo-select-search" required></select>
                         </div>
                     </div>
                 </section>
@@ -154,16 +173,22 @@
                             <label for="">المؤهل الدراسي*</label>
                             <select name="study" class="sumo-select form-control" id="study-select" placeholder="الرجاء الاختيار" required>
                                 <option selected disabled class="d-none" value=""></option>
-                                <option value="">لا يوجد</option>
-                                <option value="">شهادة الثانوية العامة</option>
-                                <option value="">إجازة جامعية</option>
-                                <option value="">دراسات عليا</option>
-                                <option value=""></option>
+                                <option value="1">لا يوجد</option>
+                                <option value="1">شهادة إعدادية</option>
+                                <option value="2">شهادة الثانوية العامة</option>
+                                <option value="3">إجازة جامعية</option>
+                                <option value="4">دراسات عليا</option>
                             </select>
                         </div>
+<!--
+                        <div class="form-group col-md-6 d-none" id="">
+                            <label for="study-sp">الاختصاص</label>
+                            <input type="text" class="form-control" id="study-sp" name="" placeholder="الرجاء الإدخال">
+                        </div>
+-->
                         <div class="w-100"></div>
                         <div class="form-group col-12">
-                            <label class="d-block">هل أنت مجازة؟*</label>
+                            <label class="d-block">هل أنت مجازة في القرآن الكريم؟*</label>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
@@ -206,6 +231,42 @@
         </div>
     </div>
 
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header pb-0">
+                   <img src="images/Success.svg" id="success-icon" class="modal-header-icon" alt="success">
+                </div>
+                <div class="modal-body text-center py-0">
+                    <div class="mb-4 title">تم إرسال الاستمارة بنجاح</div>
+                    <p class="text">تتمنى لك إدارة ألف لام ميم المثابرة بإذنه تعالى</p>
+                </div>
+                <div class="modal-footer mb-2">
+                    <a href="#" role="button" class="btn btn-light">متابعة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header pb-0">
+                    <img src="images/Error.svg" id="error-icon" class="modal-header-icon" alt="Error">
+                </div>
+                <div class="modal-body text-center py-0">
+                    <div class="mb-4 title">لم تتم عملية الإرسال بنجاح</div>
+                    <p class="text"> الرجاء إعادة المحاولة لاحقاً</p>
+                </div>
+                <div class="modal-footer mb-2">
+                    <a href="#" role="button" class="btn btn-light">تراجع</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script id="invalid-msg-template" type="text/template">
         <div class="invalid-feedback">
                                 الرجاء تعبئة هذه الخانة
@@ -213,9 +274,11 @@
     </script>
 
     <!-- jQuery library -->
-    <script src="js/jquery-3.5.1.min.js"></script>
+<!--    <script src="js/jquery-3.5.1.min.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <!--  bootstrap  -->
-    <!--	<script src="js/popper.min.js"></script>-->
+    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!--  mustache  -->
     <script src="js/mustache.min.js"></script>
@@ -241,11 +304,25 @@
         });
     </script>
     <!--  countries  -->
+<!--
     <script src="js/countries.js"></script>
     <script>
         $(document).ready(function() {
             populateCountries("country-select", "state-select"); // first parameter is id of country drop-down and second parameter is id of state drop-down
             populateCountries("nationality-select");
+            //initialize sumo select 
+            $(".sumo-select").SumoSelect();
+            $(".sumo-select-search").SumoSelect({
+                search: true
+            });
+        });
+    </script>
+-->
+    <!--  countries  -->
+    <script src="js/geodatasource-cr.min.js"></script>
+    <script src="js/Gettext.js"></script>
+    <script>
+        $(document).ready(function() {
             //initialize sumo select 
             $(".sumo-select").SumoSelect();
             $(".sumo-select-search").SumoSelect({

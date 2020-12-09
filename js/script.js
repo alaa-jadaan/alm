@@ -1,9 +1,36 @@
 $(function () {
-    $('.register-page ').on("change", "#country-select", function () {
-        //        console.log("ss");
-        $('#state-select')[0].sumo.reload();
+    //reinitialize sumo select
+    setTimeout(function () {
+        $('#nationality-select')[0].sumo.reload();
+        $('#country-select')[0].sumo.reload();
+    }, 0);
+
+//    $('#study-select').change(function () {
+//        if ($("#study-select").val() == "2") {
+//            $("#study-sp").removeClass("d-none");
+//        } else {
+//            $("#study-sp").addClass("d-none");
+//            $("#study-sp").val("");
+//        }
+//    });
+
+    //    Loading screen
+    var ajaxLoadTimeout;
+    $(document).ajaxStart(function () {
+        ajaxLoadTimeout = setTimeout(function () {
+            $(".loading-overlay").fadeIn("fast");
+        }, 600);
+
+    }).ajaxComplete(function () {
+        clearTimeout(ajaxLoadTimeout);
+        $(".loading-overlay").fadeOut("fast");
     });
 
+    $('.register-page ').on("change", "#country-select", function () {
+        $('#city-select')[0].sumo.reload();
+    });
+
+    
     function changeToPartField1() {
         $("#part-error").addClass("d-none");
         $("#to-part-text").removeClass("d-none");
@@ -29,7 +56,6 @@ $(function () {
             $("#part-error").addClass("d-none");
             $("#to-part-text").removeClass("d-none");
             $("#part-wrapper").addClass("d-none");
-
         }
     }
 
@@ -49,7 +75,6 @@ $(function () {
     }
 
     $('#subject-select').change(function () {
-
         changeToPartField1();
     });
 
@@ -109,6 +134,7 @@ $(function () {
     onlyNumbers($("#phone"));
     onlyNumbers($("#phone-confirm"));
 
+    //allow only numbers between 1-30
     $("#from-part").on('keypress', function (event) {
         var range = /^[0-9]+$/;
         var key = event.which;
@@ -156,15 +182,12 @@ $(function () {
     $("#phone").keyup(checkPhoneMatch);
     $("#phone-confirm").keyup(checkPhoneMatch);
 
-
-
+    //get quran subjects
     $.ajax({
         type: "get",
         url: "http://pure-journey-56274.herokuapp.com/api/quran_subjects",
         dataType: "json"
     }).done(function (data) {
-        console.log(data);
-        //            if (data.status) {
         var i;
         for (i in data) {
             $('#subject-select').append($('<option>', {
@@ -172,12 +195,9 @@ $(function () {
                 text: data[i].name,
                 "data-multi": data[i].multi,
                 "data-count": data[i].count
-
             }));
         }
         $('#subject-select')[0].sumo.reload();
-
-        //            }
     });
 
 
@@ -190,37 +210,45 @@ $(function () {
                 event.preventDefault();
                 event.stopPropagation();
             }
+
             console.log($("select.form-control:invalid"));
+
             $("select.form-control:invalid").each(function () {
                 $(this).siblings(".CaptionCont").addClass("sumo-invalid");
             });
-            this.classList.add('was-validated');
-        }
-        evnt.preventDefault();
-        evnt.stopImmediatePropagation();
 
-        var parts;
-        data = $(this).serializeArray();
-        if ($("#subject-select").find('option:selected').data("multi")) {
-            parts = $("#from-part").val() + "," + Number($("#to-part").text());
-            data.push({
-                name: "parameter-notes",
-                value: parts
+            this.classList.add('was-validated');
+
+            var parts;
+            data = $(this).serializeArray();
+            if ($("#subject-select").find('option:selected').data("multi")) {
+                parts = $("#from-part").val() + "," + Number($("#to-part").text());
+                data.push({
+                    name: "parameter-notes",
+                    value: parts
+                });
+            }
+
+            console.log(data);
+
+            $.ajax({
+                type: "post",
+                url: "http://pure-journey-56274.herokuapp.com//api/quran_register",
+                dataType: "json",
+                data: $.param(data)
+            }).done(function (data) {
+                console.log(data);
+                alert("Thank you");
+
             });
         }
-        console.log(data);
-        $.ajax({
-            type: "post",
-            url: "http://pure-journey-56274.herokuapp.com//api/quran_register",
-            dataType: "json",
-            data: $.param(data)
-        }).done(function (data) {
-            console.log(data);
-            alert("Thank you");
-
-        });
-
     });
+
+    //    $('#error-modal').modal("show")
+    //    $('#success-modal').modal("show")
+
+    //initialize tooltips
+    $('[data-toggle="tooltip"]').tooltip();
 
     //    var template = document.getElementById('invalid-msg-template').innerHTML;
     //    var rendered = Mustache.render(template);

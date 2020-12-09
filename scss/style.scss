@@ -5,8 +5,14 @@ $fontTajawalBold: "Tajawal-Bold",
 "sans-serif";
 $fontTajawalExtraBold: "Tajawal-ExtraBold",
 "sans-serif";
+$fontNotoRegular: "NotoSansArabic-Regular",
+    "sans-serif";
 
-//$fontAdR: "adelle-sans-arabic" ,"sans-serif";
+@font-face {
+    font-family: "NotoSansArabic-Regular";
+    src: url("../fonts/NotoSansArabic-Regular.ttf");
+}
+
 @font-face {
     font-family: "Tajawal-Black";
     src: url("../fonts/Tajawal-Black.ttf");
@@ -22,21 +28,90 @@ $fontTajawalExtraBold: "Tajawal-ExtraBold",
     src: url("../fonts/Tajawal-ExtraBold.ttf");
 }
 
-//
-//@font-face {
-//    font-family: adelle-sans-arabic;
-//    font-weight: 400;
-//}
+/*loading*/
 
-//@font-face {
-//        font-family: adelle-sans-arabic,sans-serif;
-//    
-//        font-weight: 600;
-//    
-//        font-style: normal;
-//    }
+.loading-overlay {
+    background-color: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1051;
+    display: none
+}
 
+.spinner {
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: 38vh;
+    text-align: center;
+    -webkit-animation: sk-rotate 2.0s infinite linear;
+    animation: sk-rotate 2.0s infinite linear;
+}
 
+.dot1,
+.dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #efbf32;
+    border-radius: 100%;
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate {
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes sk-rotate {
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes sk-bounce {
+
+    0%,
+    100% {
+        -webkit-transform: scale(0.0)
+    }
+
+    50% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bounce {
+
+    0%,
+    100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+
+    50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+/*end loading*/
 /*Main Rules*/
 html,
 body {
@@ -47,18 +122,6 @@ body {
     color: #3C2A4A
 }
 
-//::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-//    color: #000;
-//    opacity: 1; /* Firefox */
-//}
-//
-//:-ms-input-placeholder { /* Internet Explorer 10-11 */
-//    color: $placeholder;
-//}
-//
-//::-ms-input-placeholder { /* Microsoft Edge */
-//    color: $placeholder;
-//}
 .form-control::-webkit-input-placeholder {
     color: $placeholder;
     opacity: 1
@@ -265,18 +328,16 @@ input.form-control:focus {
     border-color: #000;
 
 }
-
+/*End for arabic site*/
 /*End Main Rules*/
 .register-page {
     background-size: 100%;
     background-attachment: fixed;
-    //    background-position: -1px -49px;
     background-position: top left;
     background-repeat: no-repeat;
     background-image: url(../images/Desktop%20From%20BG.jpg);
 
     .page-content-wrapper {
-        //        width: 700px;
         width: 50%;
         margin-left: auto;
         padding: 50px 10px;
@@ -291,14 +352,6 @@ input.form-control:focus {
         }
 
         .course {
-            //            font-family: $fontAdR;
-            //            font-weight: 400;
-            //            font-style: normal
-            //            font-family: adelle-sans-arabic,sans-serif;
-            //            //    
-            //                    font-weight: 400;
-            //            //    
-            //                    font-style: normal;
             font-size: 20px;
             margin-bottom: 60px
         }
@@ -349,6 +402,11 @@ input.form-control:focus {
 
     }
 
+    .info-icon{
+        position: absolute;
+        bottom: 8px;
+        left: 23px;
+    }
     #from-part {
         display: inline-block;
         width: 40px;
@@ -403,6 +461,46 @@ input.form-control:focus {
         border-top: 1px solid #707070;
     }
 
+    #success-modal, #error-modal{
+        .modal-content{
+            border-radius: 1em
+        }
+        .modal-header{
+            border: none;
+            img{
+                margin: auto;
+                margin-bottom: 25px;
+            }
+            #error-icon{
+                margin-top: -80px;
+            }
+            #success-icon{
+                margin-top: -62px;
+            }
+        }
+        .title{
+            font-family: $fontTajawalBlack;
+            font-size: 20px
+        }
+        .text{
+            font-family: $fontNotoRegular;
+            font-size: 16px
+        }
+        .modal-footer{
+            border: none;
+            justify-content: center
+        }
+        a[role = "button"]{
+            border: 2px solid #3C2A4A;
+            border-radius: 2em;
+            color: #3C2A4A;
+            background-color: transparent;
+            width: 150px;
+            max-width: 100%;
+            font-family: $fontTajawalExtraBold;
+            font-size: 20px
+        }
+    }
     @media (max-width: 991.98px) {
         background-image: none;
 
