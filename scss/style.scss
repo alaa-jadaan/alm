@@ -172,7 +172,28 @@ body {
     padding-right: .75rem;
     background: none
 }
+.form-control.is-valid, .was-validated .form-control:valid{
+    border-color: #A2A2A2;
 
+    &:hover {
+        border-color: #706F6F
+    }
+
+    &:focus {
+        border-color: #000;
+        box-shadow: none;
+    }
+
+    &:disabled {
+        border-color: #CECECE
+    }
+}
+.form-check-input.is-valid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+    color: #3C2A4A
+}
+.invalid-feedback{
+    font-size: 100%
+}
 /*plugins*/
 /* sumo select plugin */
 
@@ -253,6 +274,15 @@ body {
 .iti {
     width: 100%;
     direction: ltr
+}
+#error-msg {
+    color: #dc3545;
+}
+#valid-msg {
+    color: #00C900;
+}
+input.error {
+    border: 1px solid #dc3545 !important;
 }
 
 @media (min-width: 768px) {
@@ -420,7 +450,10 @@ input.form-control:focus {
 
     .radio-text {
         font-size: 16px;
-        color: #C8C8C8
+//        color: #C8C8C8
+    }
+    .form-check-label,.form-check-input{
+        cursor: pointer
     }
 
     button[type="submit"] {

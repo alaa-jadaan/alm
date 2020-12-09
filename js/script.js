@@ -5,14 +5,14 @@ $(function () {
         $('#country-select')[0].sumo.reload();
     }, 0);
 
-//    $('#study-select').change(function () {
-//        if ($("#study-select").val() == "2") {
-//            $("#study-sp").removeClass("d-none");
-//        } else {
-//            $("#study-sp").addClass("d-none");
-//            $("#study-sp").val("");
-//        }
-//    });
+    $('#study-select').change(function () {
+        if ($("#study-select").val() == "4" || $("#study-select").val() == "5") {
+            $("#study-sp-wrapper").removeClass("d-none");
+        } else {
+            $("#study-sp-wrapper").addClass("d-none");
+            $("#study-sp").val("");
+        }
+    });
 
     //    Loading screen
     var ajaxLoadTimeout;
@@ -108,6 +108,7 @@ $(function () {
     onlyArabic($("#register-form input[name='first_name']"));
     onlyArabic($("#register-form input[name='father_name']"));
     onlyArabic($("#register-form input[name='last_name']"));
+    onlyArabic($("#study-sp"));
 
     //arabic letters validation
     function onlyNumbers($field) {
@@ -254,4 +255,17 @@ $(function () {
     //    var rendered = Mustache.render(template);
     //    document.getElementById('target').innerHTML = rendered;
 
+    
+    //select birthday year
+    var dateNow = new Date();
+    var intYear = dateNow.getFullYear();
+    for (i = 1930; i <= intYear; i += 1) {
+        $("#birthday-select").append($('<option>', {
+            value: i,
+            text: i
+        }));
+    }
+    $('#birthday-select')[0].sumo.reload();
+    
+    
 });

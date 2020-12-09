@@ -72,11 +72,13 @@
                         <div class="form-group col-md-6">
                             <label for="first_name">الاسم الأول*</label>
                             <input type="text" class="form-control" id="first_name" name="first_name" placeholder="الرجاء الإدخال" maxlength="20" required>
-                            <!--
+                            
+<!--
                             <div class="invalid-feedback">
                                 الرجاء تعبئة هذة الخانة
                             </div>
 -->
+
                         </div>
                         <div class="form-group col-md-6">
                             <label for="father_name">اسم الأب*</label>
@@ -90,6 +92,8 @@
                         <div class="form-group col-md-6">
                             <label for="phone">رقم الوتساب الخاص بالطالبة*</label>
                             <input type="tel" class="form-control phone-input" id="phone" name="phoneNoCode" maxlength="15" required>
+                            <span id="valid-msg" class="d-none">✓ Valid</span>
+                            <span id="error-msg" class="d-none"></span>
                             <!--                            <small>يرجى إدخال رقم الوتس الخاص بالطالبة حصراً</small>-->
                         </div>
                         <div class="form-group col-md-6">
@@ -108,8 +112,10 @@
                             <img src="images/Question%20Mark.svg" class="info-icon" alt="Details" data-toggle="tooltip" data-placement="bottom" title="اسم الحساب على السكايب">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="">تاريخ الميلاد*</label>
-                            <input type="date" class="form-control" id="" name="birthday" placeholder="الرجاء الإدخال" required>
+                            <label for="">سنة الميلاد*</label>
+                            <select name="birthday" class="sumo-select-search form-control" id="birthday-select" required placeholder="الرجاء الاختيار">
+                                <option selected disabled class="d-none" value=""></option>
+                            </select>
                         </div>
                     </div>
                 </section>
@@ -174,18 +180,16 @@
                             <select name="study" class="sumo-select form-control" id="study-select" placeholder="الرجاء الاختيار" required>
                                 <option selected disabled class="d-none" value=""></option>
                                 <option value="1">لا يوجد</option>
-                                <option value="1">شهادة إعدادية</option>
-                                <option value="2">شهادة الثانوية العامة</option>
-                                <option value="3">إجازة جامعية</option>
-                                <option value="4">دراسات عليا</option>
+                                <option value="2">شهادة إعدادية</option>
+                                <option value="3">شهادة الثانوية العامة</option>
+                                <option value="4">إجازة جامعية</option>
+                                <option value="5">دراسات عليا</option>
                             </select>
                         </div>
-<!--
-                        <div class="form-group col-md-6 d-none" id="">
+                        <div class="form-group col-md-6 d-none" id="study-sp-wrapper">
                             <label for="study-sp">الاختصاص</label>
-                            <input type="text" class="form-control" id="study-sp" name="" placeholder="الرجاء الإدخال">
+                            <input type="text" class="form-control" id="study-sp" name="specialization" placeholder="الرجاء الإدخال">
                         </div>
--->
                         <div class="w-100"></div>
                         <div class="form-group col-12">
                             <label class="d-block">هل أنت مجازة في القرآن الكريم؟*</label>
@@ -288,7 +292,7 @@
     <script src="js/intlTelInput.min.js"></script>
     <script>
         var input = document.querySelector("#phone");
-        window.intlTelInput(input, {
+        var iti = window.intlTelInput(input, {
             // any initialisation options go here
             preferredCountries: [],
             initialCountry: "auto",
@@ -302,6 +306,43 @@
             separateDialCode: true,
             hiddenInput: "phone" //Submitting the full international number
         });
+        
+        //validate the telephone number
+        var errorMsg = document.querySelector("#error-msg"),
+            validMsg = document.querySelector("#valid-msg");
+
+        // here, the index maps to the error code returned from getValidationError - see readme
+        var errorMap = ["الرقم غير صحيح",
+                        "مفتاح البلد غير متوفر", 
+                        "رقم قصير", 
+                        "رقم طويل",
+                        "الرقم غير صحيح"];
+
+        var reset = function() {
+            input.classList.remove("error");
+            errorMsg.innerHTML = "";
+            errorMsg.classList.add("d-none");
+            validMsg.classList.add("d-none");
+        };
+
+        // on blur: validate
+        input.addEventListener('blur', function() {
+            reset();
+            if (input.value.trim()) {
+                if (iti.isValidNumber()) {
+                    validMsg.classList.remove("d-none");
+                } else {
+                    input.classList.add("error");
+                    var errorCode = iti.getValidationError();
+                    errorMsg.innerHTML = errorMap[errorCode];
+                    errorMsg.classList.remove("d-none");
+                }
+            }
+        });
+
+        // on keyup / change flag: reset
+        input.addEventListener('change', reset);
+        input.addEventListener('keyup', reset);
     </script>
     <!--  countries  -->
 <!--
