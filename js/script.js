@@ -30,7 +30,7 @@ $(function () {
         $('#city-select')[0].sumo.reload();
     });
 
-    
+
     function changeToPartField1() {
         $("#part-error").addClass("d-none");
         $("#to-part-text").removeClass("d-none");
@@ -85,7 +85,8 @@ $(function () {
     //arabic letters validation
     function onlyArabic($field) {
         // Arabic characters fall in the Unicode range 0600 - 06FF
-        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
+//        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
+        var arabicCharUnicodeRange = /[ء-ي]/;
 
         $field.on('keypress paste', function (event) {
             var key = event.which;
@@ -205,6 +206,7 @@ $(function () {
     $("#register-form").submit(function (evnt) {
         event.preventDefault();
         event.stopPropagation();
+        $("#form-fill-note").addClass("d-none");
         //        apply custom Bootstrap validation styles to form
         if ($(this).hasClass("needs-validation")) {
             //            $(this).removeClass("was-validated");
@@ -214,8 +216,24 @@ $(function () {
                 $("select.form-control:invalid").each(function () {
                     $(this).siblings(".CaptionCont").addClass("sumo-invalid");
                 });
+                $("html, body").animate({
+                    scrollTop: $("form").offset().top
+                }, "slow");
+                $("#error-message").removeClass("d-none");
                 return false;
-            } else{
+            } else {
+                //phone and phone-confirm match check
+                var phone = $("#phone").val();
+                var confirmPhone = $("#phone-confirm").val();
+
+                if (phone !== confirmPhone) {
+                    $("html, body").animate({
+                        scrollTop: $("form").offset().top
+                    }, "slow");
+                    $("#error-message").removeClass("d-none");
+                    return false;
+                }
+
                 var parts;
                 data = $(this).serializeArray();
                 if ($("#subject-select").find('option:selected').data("multi")) {
@@ -239,7 +257,7 @@ $(function () {
 
                 });
             }
-            
+
         }
     });
 
@@ -253,7 +271,7 @@ $(function () {
     //    var rendered = Mustache.render(template);
     //    document.getElementById('target').innerHTML = rendered;
 
-    
+
     //select birthday year
     var dateNow = new Date();
     var intYear = dateNow.getFullYear();
@@ -264,6 +282,6 @@ $(function () {
         }));
     }
     $('#birthday-select')[0].sumo.reload();
-    
-    
+
+
 });
