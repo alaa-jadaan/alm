@@ -203,45 +203,43 @@ $(function () {
 
 
     $("#register-form").submit(function (evnt) {
+        event.preventDefault();
+        event.stopPropagation();
         //        apply custom Bootstrap validation styles to form
         if ($(this).hasClass("needs-validation")) {
             //            $(this).removeClass("was-validated");
-            //        prevent submission
-            if (this.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            console.log($("select.form-control:invalid"));
-
-            $("select.form-control:invalid").each(function () {
-                $(this).siblings(".CaptionCont").addClass("sumo-invalid");
-            });
-
+            //to add validation styles
             this.classList.add('was-validated');
+            if (this.checkValidity() === false) {
+                $("select.form-control:invalid").each(function () {
+                    $(this).siblings(".CaptionCont").addClass("sumo-invalid");
+                });
+                return false;
+            } else{
+                var parts;
+                data = $(this).serializeArray();
+                if ($("#subject-select").find('option:selected').data("multi")) {
+                    parts = $("#from-part").val() + "," + Number($("#to-part").text());
+                    data.push({
+                        name: "parameter-notes",
+                        value: parts
+                    });
+                }
 
-            var parts;
-            data = $(this).serializeArray();
-            if ($("#subject-select").find('option:selected').data("multi")) {
-                parts = $("#from-part").val() + "," + Number($("#to-part").text());
-                data.push({
-                    name: "parameter-notes",
-                    value: parts
+                console.log(data);
+
+                $.ajax({
+                    type: "post",
+                    url: "http://pure-journey-56274.herokuapp.com//api/quran_register",
+                    dataType: "json",
+                    data: $.param(data)
+                }).done(function (data) {
+                    console.log(data);
+                    alert("Thank you");
+
                 });
             }
-
-            console.log(data);
-
-            $.ajax({
-                type: "post",
-                url: "http://pure-journey-56274.herokuapp.com//api/quran_register",
-                dataType: "json",
-                data: $.param(data)
-            }).done(function (data) {
-                console.log(data);
-                alert("Thank you");
-
-            });
+            
         }
     });
 

@@ -92,7 +92,7 @@
                         <div class="form-group col-md-6">
                             <label for="phone">رقم الوتساب الخاص بالطالبة*</label>
                             <input type="tel" class="form-control phone-input" id="phone" name="phoneNoCode" maxlength="15" required>
-                            <span id="valid-msg" class="d-none">✓ Valid</span>
+                            <span id="valid-msg" class="d-none">✓ الرقم صحيح</span>
                             <span id="error-msg" class="d-none"></span>
                             <!--                            <small>يرجى إدخال رقم الوتس الخاص بالطالبة حصراً</small>-->
                         </div>
@@ -304,7 +304,9 @@
             },
             utilsScript: "js/utils.js", //for formatting/placeholders etc
             separateDialCode: true,
-            hiddenInput: "phone" //Submitting the full international number
+            placeholderNumberType: 'MOBILE',
+            hiddenInput: "phone", //Submitting the full international number
+            excludeCountries: ["il"]
         });
         
         //validate the telephone number
@@ -343,6 +345,29 @@
         // on keyup / change flag: reset
         input.addEventListener('change', reset);
         input.addEventListener('keyup', reset);
+        /////////////////////////////////////////
+        //for phone confirm
+        var input2 = document.querySelector("#phone-confirm");
+        var iti2 = window.intlTelInput(input2, {
+            // any initialisation options go here
+            preferredCountries: [],
+            initialCountry: "auto",
+            utilsScript: "js/utils.js", //for formatting/placeholders etc
+            separateDialCode: true,
+            placeholderNumberType: 'MOBILE',
+            //hiddenInput: "phone", //Submitting the full international number
+            excludeCountries: ["il"],
+            allowDropdown: false,
+            customContainer: "phone-confirm-container"
+        });
+        
+        // listen to the telephone input for changes
+        input.addEventListener('countrychange', function(e) {
+//            addressDropdown.value = iti.getSelectedCountryData().iso2;
+            //setCountry
+            iti2.setCountry(iti.getSelectedCountryData().iso2);
+        });
+
     </script>
     <!--  countries  -->
 <!--

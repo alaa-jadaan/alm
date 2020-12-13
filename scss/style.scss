@@ -275,6 +275,14 @@ body {
     width: 100%;
     direction: ltr
 }
+.phone-confirm-container{
+    .iti__flag-container{
+        display: none
+    }
+    input{
+        padding-left: 13px
+    }
+}
 #error-msg {
     color: #dc3545;
 }
