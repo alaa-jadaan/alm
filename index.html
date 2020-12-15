@@ -393,7 +393,10 @@
             //initialize sumo select 
             $(".sumo-select").SumoSelect();
             $(".sumo-select-search").SumoSelect({
-                search: true
+                search: true,
+                searchText: 'بحث...',
+                noMatch : 'لا يوجد نتائج مطابقة لـ "{0}"',
+                forceCustomRendering: true
             });
         });
     </script>
