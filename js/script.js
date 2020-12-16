@@ -85,26 +85,47 @@ $(function () {
     //arabic letters validation
     function onlyArabic($field) {
         // Arabic characters fall in the Unicode range 0600 - 06FF
-//        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
-//        var arabicCharUnicodeRange = /[ء-ي]/;
+        //        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
+        //        var arabicCharUnicodeRange = /[ء-ي]/;
         var arabicCharUnicodeRange = /([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd])/;
 
-        $field.on('keypress paste', function (event) {
+        //sol1
+        $field.on('keypress keyup', function (event) {
+            event.preventDefault();
             var key = event.which;
             // 0 = numpad
             // 8 = backspace
             // 32 = space
             if (key == 8 || key == 0 || key === 32) {
+                this.value = event.key;
                 return true;
             }
 
             var str = String.fromCharCode(key);
             if (arabicCharUnicodeRange.test(str)) {
+                this.value += event.key;
                 return true;
             }
 
             return false;
         });
+        //sol2
+//        $field.on('keypress keyup', function (event) {
+//            if (this.value.match(/\D/)) {
+//                this.value = this.value.replace(/\D/g, '');
+//            }
+//
+//        });
+        //sol3
+//        $field.on('keypress keyup', function (event) {
+//            console.log(this.value.match(/\D/))
+//            if (this.value.match(/\D/)) {
+////                return true;
+//            }else{
+//                return false;
+//            }
+//
+//        });
     }
     // allow arabic characters only for following fields
     onlyArabic($("#register-form input[name='first_name']"));
