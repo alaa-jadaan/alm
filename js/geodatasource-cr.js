@@ -78,7 +78,7 @@
         var countryStringSemantic;
         switch (langCountrySemantic) {
             case 'ar':
-                countryStringSemantic = "رجاء قم بإختيار دوله";
+                countryStringSemantic = "الرجاء الاختيار";
                 break;
 
             case 'cs':
@@ -379,7 +379,7 @@
         var langCountry = countryElement.getAttribute("data-language");
         switch (langCountry) {
             case 'ar':
-                countryString = "رجاء قم بإختيار دوله";
+                countryString = "الرجاء الاختيار";
                 break;
 
             case 'cs':

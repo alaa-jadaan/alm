@@ -143,7 +143,10 @@
                                 <option selected disabled class="d-none" value=""></option>
                             </select>
 -->
-                            <select name="country" id="country-select" class="form-control sumo-select-search gds-cr" country-data-region-id="city-select" data-language="ar" required></select>
+                            <select name="country" id="country-select" class="form-control sumo-select-search gds-cr" country-data-region-id="city-select" data-language="ar" required placeholder="الرجاء الاختيار">
+                                <option selected disabled class="d-none" value=""></option>
+
+                            </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">المدينة*</label>
@@ -152,7 +155,10 @@
                                 <option selected disabled class="d-none" value=""></option>
                             </select>
 -->
-                            <select name="city" id="city-select" class="form-control sumo-select-search" required></select>
+                            <select name="city" id="city-select" class="form-control sumo-select-search" required placeholder="-">
+                                <option selected disabled class="d-none" value=""></option>
+
+                            </select>
                         </div>
                     </div>
                 </section>
@@ -386,7 +392,7 @@
     </script>
 -->
     <!--  countries  -->
-    <script src="js/geodatasource-cr.min.js"></script>
+    <script src="js/geodatasource-cr.js"></script>
     <script src="js/Gettext.js"></script>
     <script>
         $(document).ready(function() {

@@ -134,7 +134,7 @@ msgid "Central African Republic_CF_C"
 msgstr "جمهورية أفريقيا الوسطى"
 
 msgid "Congo_CG_C"
-msgstr "كونغو (توضيح)"
+msgstr "كونغو"
 
 msgid "Switzerland_CH_C"
 msgstr "سويسرا"
@@ -245,7 +245,7 @@ msgid "Grenada_GD_C"
 msgstr "غرينادا"
 
 msgid "Georgia_GE_C"
-msgstr "جورجيا (توضيح)"
+msgstr "جورجيا"
 
 msgid "French Guiana_GF_C"
 msgstr "غويانا الفرنسية"
@@ -312,9 +312,6 @@ msgstr "إندونيسيا"
 
 msgid "Ireland_IE_C"
 msgstr "جزيرة أيرلندا"
-
-msgid "Israel_IL_C"
-msgstr "إسرائيل"
 
 msgid "Isle of Man_IM_C"
 msgstr "جزيرة مان"
@@ -4603,24 +4600,6 @@ msgstr "مقاطعة وكسفورد"
 msgid "Wicklow_IE"
 msgstr "مقاطعة ويكلاو"
 
-msgid "HaDarom_IL"
-msgstr "منطقة الجنوب"
-
-msgid "HaMerkaz_IL"
-msgstr "المنطقة الوسطى"
-
-msgid "HaTsafon_IL"
-msgstr "منطقة الشمال"
-
-msgid "Hefa_IL"
-msgstr "حيفا"
-
-msgid "Tel Aviv_IL"
-msgstr "تل أبيب"
-
-msgid "Yerushalayim_IL"
-msgstr "منطقة القدس"
-
 msgid "Isle of Man_IM"
 msgstr "جزيرة مان"
 
@@ -8683,6 +8662,9 @@ msgstr "Yabucoa"
 msgid "Yauco_PR"
 msgstr "Yauco"
 
+msgid "Jerusalem_PS"
+msgstr "القدس"
+
 msgid "Bethlehem_PS"
 msgstr "محافظة بيت لحم"
 
@@ -8697,9 +8679,6 @@ msgstr "محافظة جنين"
 
 msgid "Jericho and Al Aghwar_PS"
 msgstr "محافظة أريحا"
-
-msgid "Jerusalem_PS"
-msgstr "منطقة القدس"
 
 msgid "Nablus_PS"
 msgstr "محافظة نابلس"
@@ -8718,6 +8697,12 @@ msgstr "مدينة طوباس"
 
 msgid "Tulkarm_PS"
 msgstr "طُولكرم"
+
+msgid "Hefa_PS"
+msgstr "حيفا"
+
+msgid "Tel Aviv_PS"
+msgstr "تل أبيب"
 
 msgid "Aveiro_PT"
 msgstr "محافظة أفييرو"

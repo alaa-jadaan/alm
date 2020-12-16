@@ -85,25 +85,22 @@ $(function () {
     //arabic letters validation
     function onlyArabic($field) {
         // Arabic characters fall in the Unicode range 0600 - 06FF
-        //        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
+                var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
         //        var arabicCharUnicodeRange = /[ء-ي]/;
-        var arabicCharUnicodeRange = /([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd])/;
-
+//        var arabicCharUnicodeRange = /([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd])/;
+//        var regex = new RegExp("[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]");
         //sol1
-        $field.on('keypress keyup', function (event) {
-            event.preventDefault();
+        $field.on('keypress paste', function (event) {
             var key = event.which;
             // 0 = numpad
             // 8 = backspace
             // 32 = space
             if (key == 8 || key == 0 || key === 32) {
-                this.value = event.key;
                 return true;
             }
 
             var str = String.fromCharCode(key);
             if (arabicCharUnicodeRange.test(str)) {
-                this.value += event.key;
                 return true;
             }
 
@@ -133,7 +130,7 @@ $(function () {
     onlyArabic($("#register-form input[name='last_name']"));
     onlyArabic($("#study-sp"));
 
-    //arabic letters validation
+    //numbers validation
     function onlyNumbers($field) {
         var range = /^[0-9]+$/;
 
@@ -228,6 +225,7 @@ $(function () {
     $("#register-form").submit(function (evnt) {
         event.preventDefault();
         event.stopPropagation();
+        
         $("#form-fill-note").addClass("d-none");
         //        apply custom Bootstrap validation styles to form
         if ($(this).hasClass("needs-validation")) {
@@ -244,7 +242,22 @@ $(function () {
                 $("#error-message").removeClass("d-none");
                 return false;
             } else {
-                //phone and phone-confirm match check
+                
+                //validate arabic input
+                var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
+
+                var first_name = $("#first_name").val();
+                var father_name = $("#father_name").val();
+                var last_name = $("#last_name").val();
+
+                if (!arabicCharUnicodeRange.test(first_name) || !arabicCharUnicodeRange.test(father_name) || !arabicCharUnicodeRange.test(last_name)) {
+                    $("html, body").animate({
+                        scrollTop: $("form").offset().top
+                    }, "slow");
+                    $("#error-message").removeClass("d-none");
+                    return false;
+                }
+                //validate phone and phone-confirm match
                 var phone = $("#phone").val();
                 var confirmPhone = $("#phone-confirm").val();
 
