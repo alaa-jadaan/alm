@@ -86,7 +86,8 @@ $(function () {
     function onlyArabic($field) {
         // Arabic characters fall in the Unicode range 0600 - 06FF
 //        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
-        var arabicCharUnicodeRange = /[ء-ي]/;
+//        var arabicCharUnicodeRange = /[ء-ي]/;
+        var arabicCharUnicodeRange = /([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd])/;
 
         $field.on('keypress paste', function (event) {
             var key = event.which;
