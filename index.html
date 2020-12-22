@@ -72,13 +72,6 @@
                         <div class="form-group col-md-6">
                             <label for="first_name">الاسم الأول*</label>
                             <input type="text" class="form-control" id="first_name" name="first_name" placeholder="الرجاء الإدخال" maxlength="20" required>
-                            
-<!--
-                            <div class="invalid-feedback">
-                                الرجاء تعبئة هذة الخانة
-                            </div>
--->
-
                         </div>
                         <div class="form-group col-md-6">
                             <label for="father_name">اسم الأب*</label>
@@ -94,7 +87,6 @@
                             <input type="tel" class="form-control phone-input" id="phone" name="phoneNoCode" maxlength="15" required>
                             <span id="valid-msg" class="d-none">✓ الرقم صحيح</span>
                             <span id="error-msg" class="d-none"></span>
-                            <!--                            <small>يرجى إدخال رقم الوتس الخاص بالطالبة حصراً</small>-->
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">إعادة إدخال رقم الوتساب للتأكد*</label>
@@ -113,7 +105,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">سنة الميلاد*</label>
-                            <select name="birthday" class="sumo-select-search form-control" id="birthday-select" required placeholder="الرجاء الاختيار">
+                            <select name="birthday" class="sumo-select form-control" id="birthday-select" required placeholder="الرجاء الاختيار">
                                 <option selected disabled class="d-none" value=""></option>
                             </select>
                         </div>
@@ -279,11 +271,6 @@
         </div>
     </div>
     
-    <script id="invalid-msg-template" type="text/template">
-        <div class="invalid-feedback">
-                                الرجاء تعبئة هذه الخانة
-        </div>
-    </script>
 
     <!-- jQuery library -->
 <!--    <script src="js/jquery-3.5.1.min.js"></script>-->
@@ -292,8 +279,6 @@
     <!--  bootstrap  -->
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!--  mustache  -->
-    <script src="js/mustache.min.js"></script>
     <!--  sumo select  -->
     <script src="js/jquery.sumoselect.min.js"></script>
     <!--  intlTelInput  -->
@@ -389,6 +374,7 @@
                 search: true,
                 searchText: 'بحث...',
                 noMatch : 'لا يوجد نتائج مطابقة لـ "{0}"',
+                floatWidth: 200,
                 forceCustomRendering: true
             });
         });

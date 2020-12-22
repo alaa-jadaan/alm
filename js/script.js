@@ -386,11 +386,6 @@ $(function () {
     //initialize tooltips
     $('[data-toggle="tooltip"]').tooltip();
 
-    //    var template = document.getElementById('invalid-msg-template').innerHTML;
-    //    var rendered = Mustache.render(template);
-    //    document.getElementById('target').innerHTML = rendered;
-
-
     //select birthday year
     var dateNow = new Date();
     var intYear = dateNow.getFullYear();
