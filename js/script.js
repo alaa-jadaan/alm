@@ -1,9 +1,67 @@
 $(function () {
-    //reinitialize sumo select
+    //Sorting options alphabetically and reinitialize sumo select
     setTimeout(function () {
+        //remove the plugin default placeholder
+        //        $("#nationality-select option[value=''], #country-select option[value='']").remove();
+
+        //        var my_options = $("#nationality-select option");
+        //
+        //        my_options.sort(function (a, b) {
+        //            if (a.text > b.text) return 1;
+        //            if (a.text < b.text) return -1;
+        //            return 0
+        //        });
+
+        //add my placeholder
+        $("#nationality-select option[value=''], #country-select option[value='']").addClass("d-none").text("");
+        //        $("#nationality-select, #country-select").empty().append('<option disabled class="d-none" value=""></option>');
+        //        $("#nationality-select, #country-select").append('<option disabled class="d-none" value=""></option>');
+        //append sorted options
+        //        $("#nationality-select, #country-select").append(my_options);
+        //to select the placeholder option
+        //        var placeholder1 = $("#nationality-select option[value='']");
+        //        var placeholder2 = $("#country-select option[value='']");
+        //        $("#nationality-select").val(placeholder1);
+        //        $("#country-select").val(placeholder2);
+
         $('#nationality-select')[0].sumo.reload();
         $('#country-select')[0].sumo.reload();
     }, 0);
+    //
+    $('.register-page ').on("change", "#country-select", function () {
+        //        //Sorting options alphabetically and reinitialize sumo select
+        //        //remove the plugin default placeholder
+        //        $("#city-select option[value='']").remove();
+        //        var my_options = $("#city-select option");
+        //
+        //        my_options.sort(function (a, b) {
+        //            if (a.text > b.text) return 1;
+        //            if (a.text < b.text) return -1;
+        //            return 0
+        //        });
+        //
+        //        //add my placeholder
+        $("#city-select option[value='']").addClass("d-none").text("");
+        //        $("#city-select").empty().append('<option disabled class="d-none" value=""></option>');
+        //        //append sorted options
+        //        $("#city-select").append(my_options);
+        //        //to select the placeholder option
+        $("#city-select").attr("placeholder", "الرجاء الاختيار");
+        //        var placeholder = $("#city-select option[value='']");
+        //        $("#city-select").val(placeholder);
+        //        
+        $('#city-select')[0].sumo.reload();
+    });
+
+    $('#nationality-select, #country-select').change(function () {
+        //        $("option:selected", this)
+        if ($("option:selected", this).data("class") == "il") {
+            console.log("af");
+            //            $("#country-select").val($("#country-select option").data("class", "ps").val())
+            $("option[data-class='ps']", this).attr("selected", "selected");
+            $(this)[0].sumo.reload();
+        }
+    });
 
     $('#study-select').change(function () {
         if ($("#study-select").val() == "4" || $("#study-select").val() == "5") {
@@ -25,11 +83,6 @@ $(function () {
         clearTimeout(ajaxLoadTimeout);
         $(".loading-overlay").fadeOut("fast");
     });
-
-    $('.register-page ').on("change", "#country-select", function () {
-        $('#city-select')[0].sumo.reload();
-    });
-
 
     function changeToPartField1() {
         $("#part-error").addClass("d-none");
@@ -85,10 +138,10 @@ $(function () {
     //arabic letters validation
     function onlyArabic($field) {
         // Arabic characters fall in the Unicode range 0600 - 06FF
-                var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
+        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
         //        var arabicCharUnicodeRange = /[ء-ي]/;
-//        var arabicCharUnicodeRange = /([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd])/;
-//        var regex = new RegExp("[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]");
+        //        var arabicCharUnicodeRange = /([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd])/;
+        //        var regex = new RegExp("[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]");
         //sol1
         $field.on('keypress paste', function (event) {
             var key = event.which;
@@ -107,27 +160,27 @@ $(function () {
             return false;
         });
         //sol2
-//        $field.on('keypress keyup', function (event) {
-//            if (this.value.match(/\D/)) {
-//                this.value = this.value.replace(/\D/g, '');
-//            }
-//
-//        });
+        //        $field.on('keypress keyup', function (event) {
+        //            if (this.value.match(/\D/)) {
+        //                this.value = this.value.replace(/\D/g, '');
+        //            }
+        //
+        //        });
         //sol3
-//        $field.on('keypress keyup', function (event) {
-//            console.log(this.value.match(/\D/))
-//            if (this.value.match(/\D/)) {
-////                return true;
-//            }else{
-//                return false;
-//            }
-//
-//        });
+        //        $field.on('keypress keyup', function (event) {
+        //            console.log(this.value.match(/\D/))
+        //            if (this.value.match(/\D/)) {
+        ////                return true;
+        //            }else{
+        //                return false;
+        //            }
+        //
+        //        });
     }
     // allow arabic characters only for following fields
-    onlyArabic($("#register-form input[name='first_name']"));
-    onlyArabic($("#register-form input[name='father_name']"));
-    onlyArabic($("#register-form input[name='last_name']"));
+    onlyArabic($("#first_name"));
+    onlyArabic($("#father_name"));
+    onlyArabic($("#last_name"));
     onlyArabic($("#study-sp"));
 
     //numbers validation
@@ -221,12 +274,17 @@ $(function () {
         $('#subject-select')[0].sumo.reload();
     });
 
+    $("select.form-control").change(function () {
+        if ($(this).siblings(".CaptionCont").hasClass("sumo-invalid")) {
+            $(this).siblings(".CaptionCont").removeClass("sumo-invalid")
+        }
+    });
 
     $("#register-form").submit(function (evnt) {
         event.preventDefault();
         event.stopPropagation();
-        
-        $("#form-fill-note").addClass("d-none");
+
+        $("#error-message").addClass("d-none");
         //        apply custom Bootstrap validation styles to form
         if ($(this).hasClass("needs-validation")) {
             //            $(this).removeClass("was-validated");
@@ -239,10 +297,10 @@ $(function () {
                 $("html, body").animate({
                     scrollTop: $("form").offset().top
                 }, "slow");
+                $("#error-message").html("*الرجاء إدخال كافة الحقول الإلزامية");
                 $("#error-message").removeClass("d-none");
                 return false;
             } else {
-                
                 //validate arabic input
                 var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
 
@@ -254,6 +312,14 @@ $(function () {
                     $("html, body").animate({
                         scrollTop: $("form").offset().top
                     }, "slow");
+                    $("#error-message").html("*الرجاء إدخال الاسم باللغة العربية");
+
+                    $("#error-message").removeClass("d-none");
+                    return false;
+                }
+                //validate phone
+                if (!($("#error-msg").hasClass("d-none"))) {
+                    $("#error-message").html("*الرجاء كتابة رقم الوتساب بشكل صحيح");
                     $("#error-message").removeClass("d-none");
                     return false;
                 }
@@ -265,8 +331,26 @@ $(function () {
                     $("html, body").animate({
                         scrollTop: $("form").offset().top
                     }, "slow");
+                    $("#error-message").html("*الرجاء إعادة كتابة رقم الوتساب بشكل صحيح");
+
                     $("#error-message").removeClass("d-none");
                     return false;
+                }
+
+                //validate arabic specialization
+                if ($("#study-select").val() == "4" || $("#study-select").val() == "5") {
+                    var specialization = $("#study-sp").val();
+                    if (specialization != "") {
+                        if (!arabicCharUnicodeRange.test(specialization)) {
+                            $("html, body").animate({
+                                scrollTop: $("form").offset().top
+                            }, "slow");
+                            $("#error-message").html("*الرجاء إدخال الاختصاص باللغة العربية");
+                            $("#error-message").removeClass("d-none");
+                            return false;
+                        }
+                    }
+
                 }
 
                 var parts;

@@ -16,8 +16,9 @@
     <!--  intlTelInput  -->
     <link rel="stylesheet" href="css/intlTelInput.min.css">
     <!--  country region select  -->
-    <link rel="stylesheet" href="css/geodatasource-countryflag.css">
+    <!-- link to ar language po file -->
     <link rel="gettext" type="application/x-po" href="languages/ar/LC_MESSAGES/ar.po" />
+    
     <!--  main css style file  -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -26,8 +27,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
 </head>
 
 <body class="register-page">
@@ -50,7 +49,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <h2 class="title">المقرأة الإلكترونيةّ</h2>
+                        <h2 class="title">المقرأة الإلكترونية</h2>
                         <div class="course">الدورة 1 لعام 1438</div>
                         <p class="details">
                             أهلاً بك في دورة 1 لعام 1438 لتسميع القرآن الكريم عن بعد.
@@ -133,7 +132,9 @@
                                 first option is to display placeholder
                                 <option selected disabled class="d-none" value=""></option>
                             </select>-->
-                            <select name="nationality" id="nationality-select" class="form-control sumo-select-search gds-cr" data-language="ar" required></select>
+                            <select name="nationality" id="nationality-select" class="form-control sumo-select-search gds-cr" data-language="ar" required placeholder="الرجاء الاختيار">
+                                <option selected disabled class="d-none" value=""></option>
+                            </select>
                         </div>
                         <div class="w-100"></div>
                         <div class="form-group col-md-6">
@@ -376,23 +377,9 @@
         });
 
     </script>
-    <!--  countries  -->
-<!--
-    <script src="js/countries.js"></script>
-    <script>
-        $(document).ready(function() {
-            populateCountries("country-select", "state-select"); // first parameter is id of country drop-down and second parameter is id of state drop-down
-            populateCountries("nationality-select");
-            //initialize sumo select 
-            $(".sumo-select").SumoSelect();
-            $(".sumo-select-search").SumoSelect({
-                search: true
-            });
-        });
-    </script>
--->
-    <!--  countries  -->
+    <!--  country region select  -->
     <script src="js/geodatasource-cr.js"></script>
+    <!--  for ar country language  -->
     <script src="js/Gettext.js"></script>
     <script>
         $(document).ready(function() {
