@@ -7,10 +7,17 @@ $fontTajawalExtraBold: "Tajawal-ExtraBold",
 "sans-serif";
 $fontNotoRegular: "NotoSansArabic-Regular",
     "sans-serif";
+$fontNotoSemiBold: "NotoSansArabic-SemiBold",
+    "sans-serif";
 
 @font-face {
     font-family: "NotoSansArabic-Regular";
     src: url("../fonts/NotoSansArabic-Regular.ttf");
+}
+
+@font-face {
+    font-family: "NotoSansArabic-SemiBold";
+    src: url("../fonts/NotoSansArabicUI-SemiBold.ttf");
 }
 
 @font-face {
@@ -115,7 +122,7 @@ $fontNotoRegular: "NotoSansArabic-Regular",
 /*Main Rules*/
 html,
 body {
-    font-family: sans-serif;
+    font-family: $fontNotoRegular;
     font-size: 18px;
     padding: 0px;
     margin: 0px;
@@ -287,7 +294,7 @@ body {
     color: #dc3545;
 }
 #valid-msg {
-    color: #00C900;
+    color: #28a745;
 }
 input.error {
     border: 1px solid #dc3545 !important;
@@ -441,25 +448,53 @@ input.form-control:focus {
         input {
             font-size: 16px
         }
-
+        label{
+            font-family: $fontNotoSemiBold
+        }
+        .form-check-label{
+            font-family: $fontNotoRegular
+        }
+        .accept-label{
+            font-family: $fontNotoSemiBold
+        }
+        
     }
-
+    .form-check-input:disabled~.form-check-label, .form-check-input[disabled]~.form-check-label{
+        color: #a2a5a7
+    }
     .info-icon{
         position: absolute;
         bottom: 8px;
         left: 23px;
     }
-    #from-part {
-        display: inline-block;
-        width: 40px;
-        padding: .375rem;
-        text-align: center
-    }
-
+//    #from-part {
+//        display: inline-block;
+//        width: 40px;
+//        padding: .375rem;
+//        text-align: center
+//    }
+//
     #part-error {
         color: #dc3545
     }
-
+    #part-wrapper {
+        .SumoSelect{
+            display: inline;
+            margin-left: 10px;
+        }
+    .CaptionCont{
+        display: inline-block !important;
+    }
+        .SumoSelect>.optWrapper{
+            left: auto;
+            right: 30px;
+            width: 77px;
+            top: 18px;
+        }
+    }
+    #to-part, #to-part-text{
+        font-size: 16px
+    }
     .radio-text {
         font-size: 16px;
 //        color: #C8C8C8
