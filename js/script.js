@@ -138,8 +138,7 @@ $(function () {
     //arabic letters validation
     function onlyArabic($field) {
         // Arabic characters fall in the Unicode range 0600 - 06FF
-//        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
-                var arabicCharUnicodeRange = /[ء-ي]/;
+        var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
         //        var arabicCharUnicodeRange = /[ء-ي]/;
         //        var arabicCharUnicodeRange = /([\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\ufdf0-\ufdfd])/;
         //        var regex = new RegExp("[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]");
@@ -263,6 +262,10 @@ $(function () {
         }
     });
 
+//    var arabic = /[\u0600-\u06FF-\s]/;//arabic and space
+//    var string = "يسيس سيَ يُّd";
+//    console.log(((string.split(arabic).length - 1) == string.length));
+    
     $("#register-form").submit(function (evnt) {
         event.preventDefault();
         event.stopPropagation();
@@ -285,7 +288,7 @@ $(function () {
                 return false;
             } else {
                 //validate arabic input
-                var arabicCharUnicodeRange = /[ء-ي-\s]/;//arabic and space
+                var arabicCharUnicodeRange = /[\u0600-\u06FF-\s]/;//arabic and space
 
                 var first_name = $("#first_name").val();
                 var father_name = $("#father_name").val();
