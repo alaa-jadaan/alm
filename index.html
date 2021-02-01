@@ -70,14 +70,17 @@
                         <div class="form-group col-md-6">
                             <label for="first_name">الاسم الأول*</label>
                             <input type="text" class="form-control" id="first_name" name="first_name" placeholder="الرجاء الإدخال" maxlength="20" required>
+                            <div class="field-error-msg d-none"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="father_name">اسم الأب*</label>
                             <input type="text" class="form-control" id="father_name" name="father_name" placeholder="الرجاء الإدخال" maxlength="20" required>
+                            <div class="field-error-msg d-none"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="last_name">الكنية*</label>
                             <input type="text" class="form-control" id="last_name" name="last_name" placeholder="الرجاء الإدخال" maxlength="20" required>
+                            <div class="field-error-msg d-none"></div>
                         </div>
                         <div class="w-100"></div>
                         <div class="form-group col-md-6">
@@ -85,16 +88,17 @@
                             <input type="tel" class="form-control phone-input" id="phone" name="phoneNoCode" maxlength="15" required>
                             <span id="valid-msg" class="d-none">✓ الرقم صحيح</span>
                             <span id="error-msg" class="d-none"></span>
+                            <div class="field-error-msg d-none"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">إعادة إدخال رقم الوتساب للتأكد*</label>
                             <input type="tel" class="form-control phone-input" id="phone-confirm" placeholder="" name="" maxlength="15" required>
+                            <div class="field-error-msg d-none"></div>
                         </div>
 
                         <div class="col-12 mb-3 mt-n3 d-none">
                             <div id="phone-match-note" class="text-danger"></div>
                         </div>
-
 
                         <div class="form-group col-md-6">
                             <label for="">حسابك على السكايب</label>
@@ -148,17 +152,10 @@
                             <label for="">مجموعة الحفظ*</label>
                             <select name="quranSubject" class="sumo-select form-control" id="subject-select" placeholder="الرجاء الاختيار" required>
                                 <option selected disabled class="d-none" value=""></option>
-                                <option value="" data-multi="true" data-count="5">2</option>
-                                <option value="" >3</option>
+                                
                             </select>
                         </div>
                         <div class="form-group col-md-6 d-none" id="part-wrapper">
-                            <!--
-<label for="" class="d-block"> (الرجاء كتابة رقم الجزء بالإنكليزية) من الجزء*</label>
-<input type="text" class="form-control" id="from-part" name="" placeholder="10" required>
-<span id="part-error">الرجاء إدخال قيمة صحيحة</span><span id="to-part-text">إلى الجزء</span> <span id="to-part"></span>
--->
-
                             <label for="" class="d-block">من الجزء*</label>
                             <select name="part" class="sumo-select form-control" id="from-part-select" placeholder="10" required>
                                 <option selected class="d-none" value=""></option>
@@ -183,6 +180,7 @@
                         <div class="form-group col-md-6 d-none" id="study-sp-wrapper">
                             <label for="study-sp">الاختصاص</label>
                             <input type="text" class="form-control" id="study-sp" name="specialization" placeholder="الرجاء الإدخال">
+                            <div class="field-error-msg d-none"></div>
                         </div>
                         <div class="w-100"></div>
                         <div class="form-group col-12">
@@ -211,7 +209,9 @@
                             <hr>
                         </div>
                     </div>
+                    
                     <div id="policies" class="policies px-2" style="direction: rtl;">
+                        <div class="field-error-msg d-none"></div>
                         <p>
                             <strong>شروط التسجيل في دورات مقرأة ألف لام ميم الإلكترونية</strong>
                         </p>
@@ -328,7 +328,7 @@
             separateDialCode: true,
             placeholderNumberType: 'MOBILE',
             hiddenInput: "phone", //Submitting the full international number
-            excludeCountries: ["il"]
+            customContainer: "phone-container"
         });
         
         //validate the telephone number
@@ -378,7 +378,6 @@
             separateDialCode: true,
             placeholderNumberType: 'MOBILE',
             //hiddenInput: "phone", //Submitting the full international number
-            excludeCountries: ["il"],
             allowDropdown: false,
             customContainer: "phone-confirm-container"
         });

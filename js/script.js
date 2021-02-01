@@ -270,7 +270,8 @@ $(function () {
         event.preventDefault();
         event.stopPropagation();
 
-        $("#error-message").addClass("d-none");
+        $("#error-message, .field-error-msg").addClass("d-none");
+        
         //        apply custom Bootstrap validation styles to form
         if ($(this).hasClass("needs-validation")) {
             //            $(this).removeClass("was-validated");
@@ -294,39 +295,63 @@ $(function () {
                 var father_name = $("#father_name").val();
                 var last_name = $("#last_name").val();
 
-                if (!((first_name.split(arabicCharUnicodeRange).length - 1) == first_name.length) ||
-                    !((father_name.split(arabicCharUnicodeRange).length - 1) == father_name.length) ||
-                    !((last_name.split(arabicCharUnicodeRange).length - 1) == last_name.length)) {
+//                if (!((first_name.split(arabicCharUnicodeRange).length - 1) == first_name.length) ||
+//                    !((father_name.split(arabicCharUnicodeRange).length - 1) == father_name.length) ||
+//                    !((last_name.split(arabicCharUnicodeRange).length - 1) == last_name.length)) {
+//                    $("html, body").animate({
+//                        scrollTop: $("form").offset().top
+//                    }, "slow");
+//                    $("#error-message").html("*الرجاء إدخال الاسم باللغة العربية");
+//
+//                    $("#error-message").removeClass("d-none");
+//                    return false;
+//                }
+                var wrong = false;
+                if (!((first_name.split(arabicCharUnicodeRange).length - 1) == first_name.length)) {
+                    $("#first_name").siblings(".field-error-msg").html("*الرجاء إدخال الاسم باللغة العربية");
+                    $("#first_name").siblings(".field-error-msg").removeClass("d-none");
+                    wrong = true;
+                }
+                if (!((father_name.split(arabicCharUnicodeRange).length - 1) == father_name.length)) {
+                    $("#father_name").siblings(".field-error-msg").html("*الرجاء إدخال الاسم باللغة العربية");
+                    $("#father_name").siblings(".field-error-msg").removeClass("d-none");
+                    wrong = true;
+                }
+                if (!((last_name.split(arabicCharUnicodeRange).length - 1) == last_name.length)) {
+                    $("#last_name").siblings(".field-error-msg").html("*الرجاء إدخال الاسم باللغة العربية");
+                    $("#last_name").siblings(".field-error-msg").removeClass("d-none");
+                    wrong = true;
+                }
+                if (wrong) {
                     $("html, body").animate({
-                        scrollTop: $("form").offset().top
+                        scrollTop: $("#first_name").offset().top
                     }, "slow");
-                    $("#error-message").html("*الرجاء إدخال الاسم باللغة العربية");
 
-                    $("#error-message").removeClass("d-none");
                     return false;
                 }
-                
                 //validate phone
                 if (!($("#error-msg").hasClass("d-none"))) {
                     $("html, body").animate({
-                        scrollTop: $("form").offset().top
+                        scrollTop: $("#phone").offset().top
                     }, "slow");
-                    $("#error-message").html("*الرجاء كتابة رقم الوتساب بشكل صحيح");
-                    $("#error-message").removeClass("d-none");
+                    $(".phone-container").siblings(".field-error-msg").html("*الرجاء كتابة رقم الوتساب بشكل صحيح");
+                    $(".phone-container").siblings(".field-error-msg").removeClass("d-none");
                     return false;
                 }
+                
                 
                 //validate phone and phone-confirm match
                 var phone = $("#phone").val();
                 var confirmPhone = $("#phone-confirm").val();
 
                 if (phone !== confirmPhone) {
+                    console.log("as");
                     $("html, body").animate({
-                        scrollTop: $("form").offset().top
+                        scrollTop: $("#phone").offset().top
                     }, "slow");
-                    $("#error-message").html("*الرجاء إعادة كتابة رقم الوتساب بشكل صحيح");
+                    $(".phone-confirm-container").siblings(".field-error-msg").html("*الرجاء إعادة كتابة رقم الوتساب بشكل صحيح");
 
-                    $("#error-message").removeClass("d-none");
+                    $(".phone-confirm-container").siblings(".field-error-msg").removeClass("d-none");
                     return false;
                 }
 
@@ -336,63 +361,23 @@ $(function () {
                     if (specialization != "") {
                         if (!((specialization.split(arabicCharUnicodeRange).length - 1) == specialization.length)) {
                             $("html, body").animate({
-                                scrollTop: $("form").offset().top
+                                scrollTop: $("#study-sp").offset().top
                             }, "slow");
-                            $("#error-message").html("*الرجاء إدخال الاختصاص باللغة العربية");
-                            $("#error-message").removeClass("d-none");
+                            $("#study-sp").siblings(".field-error-msg").html("*الرجاء إدخال الاختصاص باللغة العربية");
+                            $("#study-sp").siblings(".field-error-msg").removeClass("d-none");
+
                             return false;
                         }
                     }
-
                 }
-                
-                //validate parts
-//                var numberUnicodeRange = /[1-9]/;
-//                var fromPart = $("#from-part").val();
-//                if (fromPart != "") {
-//                    if (!((fromPart.split(numberUnicodeRange).length - 1) == fromPart.length)) {
-//                        $("html, body").animate({
-//                            scrollTop: $("form").offset().top
-//                        }, "slow");
-//                        $("#error-message").html("*الرجاء كتابة رقم الجزء بالإنكليزية");
-//                        $("#error-message").removeClass("d-none");
-//                        return false;
-//                        }
-//                    }
-//
-//                    if($("#from-part").val() === 0){
-//                        $("#to-part").html("");
-//                        $("#part-error").removeClass("d-none");
-//                        $("#to-part-text").addClass("d-none");
-//                        
-//                        $("html, body").animate({
-//                            scrollTop: $("form").offset().top
-//                        }, "slow");
-//                        $("#error-message").html("*الرجاء إدخال قيمة صحيحة في حقل من الجزء");
-//                        $("#error-message").removeClass("d-none");
-//                        return false;
-//                    }
-//                
-//                if ($("#from-part").val() > 30){
-//                    $("#to-part").html("");
-//                    $("#part-error").removeClass("d-none");
-//                    $("#to-part-text").addClass("d-none");
-//
-//                    $("html, body").animate({
-//                        scrollTop: $("form").offset().top
-//                    }, "slow");
-//                    $("#error-message").html("*الرجاء إدخال قيمة صحيحة في حقل من الجزء");
-//                    $("#error-message").removeClass("d-none");
-//                    return false;
-//                }
                 
                 //check if policies accepted
                 if(!($("#accept").is(':checked'))){
                     $("html, body").animate({
-                        scrollTop: $("form").offset().top
+                        scrollTop: $("#policies").offset().top
                     }, "slow");
-                    $("#error-message").html("*الرجاء قراءة شروط التسجيل والموافقة عليها");
-                    $("#error-message").removeClass("d-none");
+                    $("#policies .field-error-msg").html("*الرجاء قراءة شروط التسجيل والموافقة عليها");
+                    $("#policies .field-error-msg").removeClass("d-none");
                     return false;
                 }
                 
