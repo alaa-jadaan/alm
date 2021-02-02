@@ -65,7 +65,7 @@ $(function () {
 //    }
 
     function subjectChange() {
-        console.log($('#from-part-select').val());
+//        console.log($('#from-part-select').val());
         $("#part-error").addClass("d-none");
         $("#to-part-text").removeClass("d-none");
         $('#from-part-select')[0].sumo.unSelectAll();
@@ -345,7 +345,6 @@ $(function () {
                 var confirmPhone = $("#phone-confirm").val();
 
                 if (phone !== confirmPhone) {
-                    console.log("as");
                     $("html, body").animate({
                         scrollTop: $("#phone").offset().top
                     }, "slow");
